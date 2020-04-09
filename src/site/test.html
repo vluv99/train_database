@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/base/common.css">
+    <link rel="stylesheet" type="text/css" href="css/theme.css">
+
+    <script src="js/main.js"></script>
+    <title>Train'Spot</title>
+
+</head>
+
+<body class="mdc-typography">
+    <header class="mdc-top-app-bar mdc-top-app-bar--fixed">
+        <div class="mdc-top-app-bar__row">
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+                <div class="mdc-top-app-bar__title top-app-bar__title">
+                    <img class="top-app-bar__logo" src="./img/logo/logo.webp">
+                    Train'Spot
+                </div>
+            </section>
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
+                <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded" aria-label="Download">file_download</button>
+                <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded" aria-label="Print this page">print</button>
+                <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded" aria-label="Bookmark this page">bookmark</button>
+            </section>
+        </div>
+    </header>
+
+    <div class="mdc-top-app-bar--fixed-adjust content mdc-theme--surface">
+        <form>
+            <legend><h3 class="mdc-typography--headline3 mdc-theme--on-primary">Trip-planner</h3></legend>
+
+            <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon">
+                <i class="material-icons mdc-text-field__icon">location_on</i>
+                <input class="mdc-text-field__input" id="text-field-hero-input">
+                <div class="mdc-notched-outline">
+                    <div class="mdc-notched-outline__leading"></div>
+                    <div class="mdc-notched-outline__notch">
+                        <label for="text-field-hero-input" class="mdc-floating-label">From</label>
+                    </div>
+                    <div class="mdc-notched-outline__trailing"></div>
+                </div>
+            </div>
+
+            <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon">
+                <i class="material-icons mdc-text-field__icon">location_on</i>
+                <input class="mdc-text-field__input" id="text-field-hero-input">
+                <div class="mdc-notched-outline">
+                    <div class="mdc-notched-outline__leading"></div>
+                    <div class="mdc-notched-outline__notch">
+                        <label for="text-field-hero-input" class="mdc-floating-label">To</label>
+                    </div>
+                    <div class="mdc-notched-outline__trailing"></div>
+                </div>
+            </div>
+
+            <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon">
+                <i class="material-icons mdc-text-field__icon">calendar_today</i>
+                <input class="mdc-text-field__input" id="text-field-hero-input">
+                <div class="mdc-notched-outline">
+                    <div class="mdc-notched-outline__leading"></div>
+                    <div class="mdc-notched-outline__notch">
+                        <label for="text-field-hero-input" class="mdc-floating-label">Depart</label>
+                    </div>
+                    <div class="mdc-notched-outline__trailing"></div>
+                </div>
+            </div>
+
+            <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon">
+                <i class="material-icons mdc-text-field__icon">calendar_today</i>
+                <input class="mdc-text-field__input" id="text-field-hero-input">
+                <div class="mdc-notched-outline">
+                    <div class="mdc-notched-outline__leading"></div>
+                    <div class="mdc-notched-outline__notch">
+                        <label for="text-field-hero-input" class="mdc-floating-label">Return <i>(optional)</i></label>
+                    </div>
+                    <div class="mdc-notched-outline__trailing"></div>
+                </div>
+            </div>
+
+            <div class="mdc-select">
+                <div class="mdc-select__anchor demo-width-class">
+                  <i class="mdc-select__dropdown-icon"></i>
+                  <div class="mdc-select__selected-text"></div>
+                  <span class="mdc-floating-label">Number of passengers</span>
+                  <div class="mdc-line-ripple"></div>
+                </div>
+              
+                <div class="mdc-select__menu mdc-menu mdc-menu-surface demo-width-class">
+                  <ul class="mdc-list">
+                    <li class="mdc-list-item mdc-list-item--selected" data-value="" aria-selected="true"></li>
+                    <li class="mdc-list-item" data-value="adult">
+                      Adult
+                    </li>
+                    <li class="mdc-list-item" data-value="youth">
+                      Youth/Child
+                    </li>
+                    <li class="mdc-list-item" data-value="senior">
+                      Senior
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+        </form>
+    </div>
+
+    <div class="mdc-top-app-bar--fixed-adjust">
+        <h2 id="test"></h2>
+        <button class="mdc-button foo-button">
+            <div class="mdc-button__ripple"></div>
+            <span class="mdc-button__label">Button</span>
+        </button>
+    </div>
+
+    <script>
+        const MDCTopAppBar = mdc.topAppBar.MDCTopAppBar;
+        const MDCSelect = mdc.select.MDCSelect;
+
+        mdc.ripple.MDCRipple.attachTo(document.querySelector('.foo-button'));
+
+        const topAppBarElement = document.querySelector('.mdc-top-app-bar');
+        const topAppBar = new MDCTopAppBar(topAppBarElement);
+
+        const select = new MDCSelect(document.querySelector('.mdc-select'));
+
+        select.listen('MDCSelect:change', () => {
+            alert(`Selected option at index ${select.selectedIndex} with value "${select.value}"`);
+        });
+
+    </script>
+
+</body>

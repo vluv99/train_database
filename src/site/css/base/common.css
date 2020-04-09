@@ -1,0 +1,38 @@
+
+a {
+    text-decoration: none;
+}
+
+body{
+    margin: 0;
+    width: 100%;
+}
+
+.top-app-bar__logo{
+    height: 100%;
+}
+
+.top-app-bar__title{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.content{
+    /*background-color: var(--mdc-theme-surface);*/
+}
+
+.mdc-theme--surface .mdc-text-field__input,
+.mdc-theme--surface .material-icons,
+.mdc-theme--surface .mdc-text-field,
+.mdc-theme--surface .mdc-floating-label{
+    color: var(--mdc-theme-on-surface) !important;
+}
+
+.mdc-theme--surface .mdc-notched-outline__leading,
+.mdc-theme--surface .mdc-notched-outline__notch,
+.mdc-theme--surface .mdc-notched-outline__trailing{
+    border-color: var(--mdc-theme-on-surface) !important;
+}
+
