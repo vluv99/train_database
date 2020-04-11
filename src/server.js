@@ -1,27 +1,14 @@
-/*
-var express = require('express');
-var app = express();
-var bodyParser = require('body-parser');
-//var oracledb = require('oracledb');
-
-app.use(bodyParser.json());
-*/
-/*
-var connect = {
-    "user": "asd",
-    "password": "asd",
-    "connectString": "130.35.54.34/XE"
-}
-*/
-/*
-void getConnection(Object connect, function(Error error, Connection conn){});
-
-void execute(String sql, [Object bindParams, [Object options,]] function(Error error, [Object result]){});
-*/
-
 
 var express = require('express');
 const Trip = require('./data/Trip.js');
+var oracledb = require('oracledb');
+
+
+var connect = {
+   "user": "TRAINUSER",
+   "password": "mavlogin",
+   "connectString": "localhost:1521/XEPDB1"
+}
 
 var app = express();
 
@@ -35,9 +22,39 @@ app.get('/trains', function (req, res) {
    res.json(trips);
 })
 
+// Http Method: GET
+// URI        : /user_profiles
+// Read all the user profiles
+app.get('/trips', function (req, res) {
+   "use strict";
+
+   oracledb.getConnection(connect, function (err, connection) {
+      if (err) {
+         // Error connecting to DB
+         res.set('Content-Type', 'application/json');
+         res.status(500).send(JSON.stringify({
+            status: 500,
+            message: "Error connecting to DB",
+            detailed_message: err.message
+         }));
+         return;
+      }
+
+      // Release the connection
+      connection.release(
+         function (err) {
+            if (err) {
+               console.error(err.message);
+            } else {
+               console.log("GET /user_profiles : Connection released");
+            }
+         });
+   });
+});
+
 var server = app.listen(8081, function () {
    var host = server.address().address
    var port = server.address().port
-   
+
    console.log("Example app listening at http://%s:%s", host, port)
 })

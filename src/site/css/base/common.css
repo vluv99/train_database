@@ -26,7 +26,8 @@ body{
 .mdc-theme--surface .mdc-text-field__input,
 .mdc-theme--surface .material-icons,
 .mdc-theme--surface .mdc-text-field,
-.mdc-theme--surface .mdc-floating-label{
+.mdc-theme--surface .mdc-floating-label,
+.mdc-theme--surface .mdc-list-item{
     color: var(--mdc-theme-on-surface) !important;
 }
 
