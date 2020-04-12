@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My Example App</title>
+
+    <!-- Add support for Web Components to older browsers. -->
+    <script src="@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+
+    <!-- Your application must load the Roboto and Material Icons fonts. -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet">
+  </head>
+  <body>
+    <mwc-top-app-bar-fixed>
+        <mwc-icon-button icon="menu" slot="navigationIcon"></mwc-icon-button>
+        <div slot="title">Title</div>
+        <mwc-icon-button icon="file_download" slot="actionItems"></mwc-icon-button>
+        <mwc-icon-button icon="print" slot="actionItems"></mwc-icon-button>
+        <mwc-icon-button icon="favorite" slot="actionItems"></mwc-icon-button>
+        <div><!-- content --></div>
+    </mwc-top-app-bar-fixed>
+
+    <!-- The Material Web Components use standard JavaScript modules. -->
+    <script type="module">
+
+      // Importing this module registers <mwc-button> as an element that you
+      // can use in this page.
+      //
+      // Note this import is a bare module specifier, so it must be converted
+      // to a path using a server such as es-dev-server.
+      import '@material/mwc-button';
+
+      // Standard DOM APIs work with Web Components just like they do for
+      // built-in elements.
+      const button = document.querySelector('#myButton');
+      button.addEventListener('click', () => {
+        alert('You clicked!');
+      });
+    </script>
+  </body>
+</html>
