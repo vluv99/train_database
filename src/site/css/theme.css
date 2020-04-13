@@ -6,6 +6,6 @@
     --mdc-theme-on-primary: #ffffff;
     --mdc-theme-on-secondary: #000000;
     --mdc-theme-on-surface: #c7c7c7;
-    --mdc-theme-text-primary-on-light: #ffffff;
-    --mdc-theme-text-secondary-on-dark: #000000;
+    --mdc-theme-text-primary-on-light: #000000;
+    --mdc-theme-text-secondary-on-dark: #ffffff;
 }

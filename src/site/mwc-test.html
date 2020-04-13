@@ -1,42 +1,49 @@
 <!doctype html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+
     <meta charset="utf-8">
     <title>My Example App</title>
 
     <!-- Add support for Web Components to older browsers. -->
-    <script src="@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <!--<script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>-->
+    <!--<script type="module" src="https://unpkg.com/@material/mwc-button@latest/mwc-button.js?module"></script>-->
+    <link href="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.js"></script>
 
     <!-- Your application must load the Roboto and Material Icons fonts. -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet">
+
+    <!--Our own styles-->
+    <link href="css/base/base.css" rel="stylesheet">
+    <link href="css/theme.css" rel="stylesheet">
+    <link href="css/base/page.css" rel="stylesheet">
   </head>
   <body>
     <mwc-top-app-bar-fixed>
         <mwc-icon-button icon="menu" slot="navigationIcon"></mwc-icon-button>
-        <div slot="title">Title</div>
+        <div slot="title">
+          <img class="top-app-bar__logo" src="./img/logo/logo.webp">
+          Train'Spot
+        </div>
         <mwc-icon-button icon="file_download" slot="actionItems"></mwc-icon-button>
         <mwc-icon-button icon="print" slot="actionItems"></mwc-icon-button>
         <mwc-icon-button icon="favorite" slot="actionItems"></mwc-icon-button>
-        <div><!-- content --></div>
+        <div>
+          
+          <div class="mdc-theme--surface">
+            <h3 class="mdc-typography--headline3 mdc-theme--on-primary">Trip-planner</h3>
+
+            <mwc-textfield outlined label="Standard" icon="event"></mwc-textfield>
+
+          <div>
+
+        </div>
     </mwc-top-app-bar-fixed>
 
     <!-- The Material Web Components use standard JavaScript modules. -->
-    <script type="module">
-
-      // Importing this module registers <mwc-button> as an element that you
-      // can use in this page.
-      //
-      // Note this import is a bare module specifier, so it must be converted
-      // to a path using a server such as es-dev-server.
-      import '@material/mwc-button';
-
-      // Standard DOM APIs work with Web Components just like they do for
-      // built-in elements.
-      const button = document.querySelector('#myButton');
-      button.addEventListener('click', () => {
-        alert('You clicked!');
-      });
-    </script>
+    <script type="module" src="./js/test.js"></script>
   </body>
 </html>

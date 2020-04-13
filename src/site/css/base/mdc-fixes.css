@@ -1,0 +1,33 @@
+/*Set color for elements on surface*/
+.mdc-theme--surface .mdc-text-field__input,
+.mdc-theme--surface .material-icons,
+.mdc-theme--surface .mdc-text-field,
+.mdc-theme--surface .mdc-floating-label,
+.mdc-theme--surface .mdc-list-item,
+.mdc-top-app-bar .mdc-tab__icon,
+.mdc-top-app-bar .mdc-tab__text-label{
+    color: var(--mdc-theme-on-surface) !important;
+}
+
+.mdc-top-app-bar .mdc-tab-indicator__content{
+    border-color: var(--mdc-theme-secondary) !important;
+}
+
+.mdc-top-app-bar .mdc-tab{
+    height: 64px;
+}
+
+.mdc-top-app-bar .mdc-tab__ripple::before{
+    z-index: 10;
+}
+
+.mdc-tab .mdc-tab--active{
+    color: var(--mdc-theme-secondary);
+}
+
+.mdc-theme--surface .mdc-notched-outline__leading,
+.mdc-theme--surface .mdc-notched-outline__notch,
+.mdc-theme--surface .mdc-notched-outline__trailing,
+.mdc-button__label{
+    border-color: var(--mdc-theme-on-surface) !important;
+}

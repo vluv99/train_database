@@ -19,7 +19,8 @@ trips[1].name = "notBela";
 
 
 app.use(express.static('site'));
-app.use('/node_modules',express.static('node_modules'));
+app.use('/node_modules/*',express.static('node_modules'));
+app.use('*', transformMiddleware());
 
 app.get('/trains', function (req, res) {
    //res.send('Hello World!');
@@ -71,7 +72,8 @@ app.get('/trips', function (req, res) {
    });
 });
 
-app.use(transformMiddleware());
+
+
 
 var server = app.listen(8081, function () {
    var host = server.address().address
