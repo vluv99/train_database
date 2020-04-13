@@ -2,6 +2,8 @@
 var express = require('express');
 const transformMiddleware = require('express-transform-bare-module-specifiers').default;
 
+const bodyParser = require('body-parser');
+
 const Trip = require('./data/Trip.js');
 var oracledb = require('oracledb');
 
@@ -14,18 +16,11 @@ var connect = {
 
 var app = express();
 
-var trips = [new Trip(), new Trip()];
-trips[1].name = "notBela";
-
-
 app.use(express.static('site'));
 app.use('/node_modules/*',express.static('node_modules'));
 app.use('*', transformMiddleware());
-
-app.get('/trains', function (req, res) {
-   //res.send('Hello World!');
-   res.json(trips);
-})
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // Http Method: GET
 // URI        : /user_profiles
@@ -58,6 +53,7 @@ app.get('/trips', function (req, res) {
          } else {
             res.contentType('application/json').status(200);
             res.send(JSON.stringify(result.rows));
+            console.log(req);
          }
          // Release the connection
          connection.release(
