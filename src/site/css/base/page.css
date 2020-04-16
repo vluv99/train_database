@@ -1,0 +1,9 @@
+.top-app-bar__logo{
+    height: 100%;
+}
+
+mwc-top-app-bar-fixed div[slot="title"]{
+    height: 64px;
+    display: flex;
+    align-items: center;
+}

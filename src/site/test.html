@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.css" rel="stylesheet">
+
+
+  <link rel="stylesheet" type="text/css" href="css/base/base.css">
+  <link rel="stylesheet" type="text/css" href="css/base/mdc-fixes.css">
+  <link rel="stylesheet" type="text/css" href="css/base/common.css">
+  <link rel="stylesheet" type="text/css" href="css/theme.css">
+
+  <title>Train'Spot</title>
+
+</head>
+
+<body class="mdc-typography">
+  <header class="mdc-top-app-bar mdc-top-app-bar--fixed">
+
+
+    <div class="mdc-top-app-bar__row">
+      <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+        <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button">menu</button>
+        <div class="mdc-top-app-bar__title top-app-bar__title">
+          <img class="top-app-bar__logo" src="./img/logo/logo.webp">
+          Train'Spot
+        </div>
+      </section>
+      <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end top-app__tab-bar">
+
+        <!--
+        <div class="mdc-tab-bar" role="tablist" data-mdc-auto-init="MDCTabBar">
+          <div class="mdc-tab-scroller">
+            <div class="mdc-tab-scroller__scroll-area">
+              <div class="mdc-tab-scroller__scroll-content">
+
+                <button class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0">
+                  <span class="mdc-tab__content">
+                    <span class="mdc-tab__icon material-icons" aria-hidden="true">person</span>
+                    <span class="mdc-tab__text-label">Profile</span>
+                  </span>
+                  <span class="mdc-tab-indicator mdc-tab-indicator--active">
+                    <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                  </span>
+                  <span class="mdc-tab__ripple"></span>
+                </button>
+
+                <button class="mdc-tab mdc-tab" role="tab" aria-selected="true" tabindex="0">
+                  <span class="mdc-tab__content">
+                    <span class="mdc-tab__icon material-icons" aria-hidden="true">date_range</span>
+                    <span class="mdc-tab__text-label">History</span>
+                  </span>
+                  <span class="mdc-tab-indicator mdc-tab-indicator">
+                    <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                  </span>
+                  <span class="mdc-tab__ripple"></span>
+                </button>
+
+                <button class="mdc-tab mdc-tab" role="tab" aria-selected="true" tabindex="0">
+                  <span class="mdc-tab__content">
+                    <span class="mdc-tab__icon material-icons" aria-hidden="true">exit_to_app</span>
+                    <span class="mdc-tab__text-label">Sign Out</span>
+                  </span>
+                  <span class="mdc-tab-indicator mdc-tab-indicator">
+                    <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                  </span>
+                  <span class="mdc-tab__ripple"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      -->
+
+      </section>
+    </div>
+  </header>
+
+  <!--menu/nav-->
+  <aside id="drawer" class="mdc-drawer mdc-drawer--modal" data-mdc-auto-init="MDCDrawer">
+    <div class="mdc-drawer__content">
+      <nav class="mdc-list">
+        <h4 class="mdc-typography--headline4 --mdc-theme-primary search-form__title">Log In</h4>
+
+        <div class="nav_login_box">
+
+          <div class="nav_login_field">
+            <!--username-->
+            <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
+              <input class="mdc-text-field__input" type="email" id="text-field-username-input">
+              <div class="mdc-notched-outline">
+                <div class="mdc-notched-outline__leading"></div>
+                <div class="mdc-notched-outline__notch">
+                  <label for="text-field-hero-input" class="mdc-floating-label">Username</label>
+                </div>
+                <div class="mdc-notched-outline__trailing"></div>
+              </div>
+            </div>
+
+            <!--password-->
+            <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
+              <input class="mdc-text-field__input" type="password" id="text-field-password-input">
+              <div class="mdc-notched-outline">
+                <div class="mdc-notched-outline__leading"></div>
+                <div class="mdc-notched-outline__notch">
+                  <label for="text-field-hero-input" class="mdc-floating-label">Password</label>
+                </div>
+                <div class="mdc-notched-outline__trailing"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!--login button-->
+        <div class="login_button_box">
+          <button class="mdc-button login_form-button" data-mdc-auto-init="MDCRipple">
+            <h1 id="form_button"></h1>
+            <div class="mdc-button__ripple"></div>
+            <span class="mdc-button__label">Log in</span>
+          </button>
+
+          <!--sign up button-->
+          <button class="mdc-button mdc-button--raised login_form-button">
+            <span class="mdc-button__ripple"></span>Sign Up
+          </button>
+        </div>
+        </form>
+
+        <br>
+        <!--logged in text-->
+        <div class="logged_text_box">
+          <h3 class="drawer_h3">You are logged in as
+            <div class="login">piri@gmail.com</div>
+          </h3>
+        </div>
+        <br>
+        <!--menu option buttons-->
+        <a class="mdc-list-item" href="#">
+          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">person</i>
+          <span class="mdc-list-item__text">Profile</span>
+        </a>
+
+        <a class="mdc-list-item" href="#">
+          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">near_me</i>
+          <span class="mdc-list-item__text">Trip-planner</span>
+        </a>
+
+        <a class="mdc-list-item" href="#">
+          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">date_range</i>
+          <span class="mdc-list-item__text">History</span>
+        </a>
+
+        <a class="mdc-list-item" href="#">
+          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">train</i>
+          <span class="mdc-list-item__text">Trains now</span>
+        </a>
+
+        <a class="mdc-list-item" href="#">
+          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">house</i>
+          <span class="mdc-list-item__text">Stations</span>
+        </a>
+
+        <!--only for workers-->
+        <a class="mdc-list-item" href="#">
+          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">attach_money</i>
+          <span class="mdc-list-item__text">Payments</span>
+        </a>
+
+        <br>
+        <a class="mdc-list-item" href="#">
+          <i class="material-icons mdc-list-item__graphic log_out_icon" aria-hidden="true">exit_to_app</i>
+          <span class="mdc-list-item__text log_out_text">Log Out</span>
+        </a>
+
+        <!--
+        <div class="nav--logo">
+          <img src="./img/logo/logo.webp">
+          Train'Spot
+        </div>
+        -->
+      </nav>
+
+    </div>
+  </aside>
+  <!--part of menu/nav-->
+  <div class="mdc-drawer-scrim"></div>
+
+  <!--!content!-->
+  <div class="mdc-top-app-bar--fixed-adjust content mdc-theme--surface">
+
+    <template id="train-list__row">
+      <tr class="mdc-data-table__row">
+        <td class="mdc-data-table__cell">Szeged</td>
+        <td class="mdc-data-table__cell">Budapest-Nyugati</td>
+        <td class="mdc-data-table__cell">06:32</td>
+        <td class="mdc-data-table__cell">08:47</td>
+        <td class="mdc-data-table__cell">02:15<span> hours</span></td>
+        <td class="mdc-data-table__cell">2300<span>Ft</span></td>
+      </tr>
+    </template>
+
+    <!--headline-->
+    <form id="train-search" class="search-form" >
+      <legend>
+        <h3 class="mdc-typography--headline3 mdc-theme--on-primary search-form__title">Trip-planner</h3>
+      </legend>
+
+      <div class="search-form--fileds">
+
+
+        <!--start location serach-->
+        <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"
+          data-mdc-auto-init="MDCTextField">
+          <i class="material-icons mdc-text-field__icon">location_on</i>
+          <input class="mdc-text-field__input" type="text" id="text-field-FROM-input" name="from">
+          <div class="mdc-notched-outline">
+            <div class="mdc-notched-outline__leading"></div>
+            <div class="mdc-notched-outline__notch">
+              <label for="text-field-hero-input" class="mdc-floating-label">From</label>
+            </div>
+            <div class="mdc-notched-outline__trailing"></div>
+          </div>
+        </div>
+
+        <!--arrow-->
+        <div class="search-form__icon">
+          <span class="material-icons">arrow_right_alt</span>
+        </div>
+
+        <!--destination location serach-->
+        <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"
+          data-mdc-auto-init="MDCTextField">
+          <i class="material-icons mdc-text-field__icon">location_on</i>
+          <input class="mdc-text-field__input" type="text" id="text-field-TO-input">
+          <div class="mdc-notched-outline">
+            <div class="mdc-notched-outline__leading"></div>
+            <div class="mdc-notched-outline__notch">
+              <label for="text-field-hero-input" class="mdc-floating-label">To</label>
+            </div>
+            <div class="mdc-notched-outline__trailing"></div>
+          </div>
+        </div>
+
+        <!--depart day serach-->
+        <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"
+          data-mdc-auto-init="MDCTextField">
+          <i class="material-icons mdc-text-field__icon">calendar_today</i>
+          <input class="mdc-text-field__input" id="text-field-WHEN-input">
+          <div class="mdc-notched-outline">
+            <div class="mdc-notched-outline__leading"></div>
+            <div class="mdc-notched-outline__notch">
+              <label for="text-field-hero-input" class="mdc-floating-label">Depart</label>
+            </div>
+            <div class="mdc-notched-outline__trailing"></div>
+          </div>
+        </div>
+
+        <!--return date search-->
+        <!--
+          <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"
+            data-mdc-auto-init="MDCTextField">
+            <i class="material-icons mdc-text-field__icon">calendar_today</i>
+            <input class="mdc-text-field__input" type="date" id="text-field-hero-input">
+            <div class="mdc-notched-outline">
+              <div class="mdc-notched-outline__leading"></div>
+              <div class="mdc-notched-outline__notch">
+                <label for="text-field-hero-input" class="mdc-floating-label">Return <i>(optional)</i></label>
+              </div>
+              <div class="mdc-notched-outline__trailing"></div>
+            </div>
+          </div>-->
+
+        <!--passenger age serach-->
+        <div class="mdc-select">
+          <div class="mdc-select__anchor demo-width-class">
+            <i class="mdc-select__dropdown-icon"></i>
+            <div class="mdc-select__selected-text"></div>
+            <span class="mdc-floating-label">Passengers</span>
+            <div class="mdc-line-ripple"></div>
+          </div>
+
+          <div class="mdc-select__menu mdc-menu mdc-menu-surface demo-width-class">
+            <ul class="mdc-list">
+              <li class="mdc-list-item mdc-list-item--selected" data-value="" aria-selected="true"></li>
+              <li class="mdc-list-item" data-value="adult">
+                Adult
+              </li>
+              <li class="mdc-list-item" data-value="youth">
+                Youth/Child
+              </li>
+              <li class="mdc-list-item" data-value="senior">
+                Senior
+              </li>
+            </ul>
+          </div>
+
+
+        </div>
+
+        <!--trip search button-->
+        <div class="finish-search">
+
+          <button class="mdc-button trip_form-button" data-mdc-auto-init="MDCRipple">
+            <h1 id="form_button"></h1>
+            <div class="mdc-button__ripple"></div>
+            <span class="mdc-button__label">Search</span>
+          </button>
+
+        </div>
+
+      </div>
+
+    </form>
+
+    <!--table-->
+    <div class="box my-box">
+      <div class="mdc-data-table">
+        <table class="mdc-data-table__table" aria-label="Dessert calories">
+          <thead>
+            <tr class="mdc-data-table__header-row">
+              <th class="mdc-data-table__header-cell" role="columnheader" scope="col">From</th>
+              <th class="mdc-data-table__header-cell" role="columnheader" scope="col">To</th>
+              <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Depart</th>
+              <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Arrive</th>
+              <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Time</th>
+              <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Price</th>
+            </tr>
+          </thead>
+          <tbody id="train-list" class="mdc-data-table__content">
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+
+
+  <script>
+    window.mdc.autoInit();
+
+    const MDCTopAppBar = mdc.topAppBar.MDCTopAppBar;
+    //const MDCTabBar = mdc.tabbar.MDCTabBar;
+    const MDCSelect = mdc.select.MDCSelect;
+
+    //mdc.ripple.MDCRipple.attachTo(document.querySelector('.trip_form-button'));
+
+    const topAppBarElement = document.querySelector('.mdc-top-app-bar');
+    const topAppBar = new MDCTopAppBar(topAppBarElement);
+    //const tabBar = new MDCTabBar(document.querySelector('.mdc-tab-bar'));
+
+    const select = new MDCSelect(document.querySelector('.mdc-select'));
+
+
+
+    select.listen('MDCSelect:change', () => {
+      alert(`Selected option at index ${select.selectedIndex} with value "${select.value}"`);
+    });
+
+    //topAppBar.setScrollTarget(document.getElementById('main-content'));
+    const drawer = document.getElementById('drawer').MDCDrawer;
+    topAppBar.listen('MDCTopAppBar:nav', () => {
+      drawer.open = !drawer.open;
+    });
+
+    const listEl = document.querySelector('.mdc-drawer .mdc-list');
+    const mainContentEl = document.querySelector('.main-content');
+
+    /*listEl.addEventListener('click', (event) => {
+      mainContentEl.querySelector('input, button').focus();
+    });
+
+    document.body.addEventListener('MDCDrawer:closed', () => {
+      mainContentEl.querySelector('input, button').focus();
+    });*/
+
+  </script>
+
+  <script src="js/main.js"></script>
+
+</body>
