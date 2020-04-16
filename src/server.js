@@ -6,13 +6,7 @@ const bodyParser = require('body-parser');
 
 const Trip = require('./data/Trip.js');
 var oracledb = require('oracledb');
-
-
-var connect = {
-   "user": "TRAINUSER",
-   "password": "mavlogin",
-   "connectString": "192.168.56.1:1521/XEPDB1"
-}
+var connect = require('./Connection.js');
 
 var app = express();
 
