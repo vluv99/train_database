@@ -26,10 +26,14 @@
     <div class="mdc-top-app-bar__row">
       <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
         <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button">menu</button>
-        <div class="mdc-top-app-bar__title top-app-bar__title">
-          <img class="top-app-bar__logo" src="./img/logo/logo.webp">
-          Train'Spot
-        </div>
+        <a class="mdc-top-app-bar__title top-app-bar__title" href="/">
+        
+          
+            <img class="top-app-bar__logo" src="./img/logo/logo.webp">
+            Train'Spot
+          
+        
+      </a>
       </section>
       <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end top-app__tab-bar">
 
@@ -82,9 +86,9 @@
           </button>
 
           <!--sign up button-->
-          <button class="mdc-button mdc-button--raised login_form-button">
+          <a class="mdc-button mdc-button--raised login_form-button" href="/sign-up">
             <span class="mdc-button__ripple"></span>Sign Up
-          </button>
+          </a>
         </div>
         </form>
 
@@ -147,156 +151,8 @@
   <!--part of menu/nav-->
   <div class="mdc-drawer-scrim"></div>
 
-  <!--!content!-->
-  <div class="mdc-top-app-bar--fixed-adjust content mdc-theme--surface">
-
-    <template id="train-list__row">
-      <tr class="mdc-data-table__row">
-        <td class="mdc-data-table__cell">Szeged</td>
-        <td class="mdc-data-table__cell">Budapest-Nyugati</td>
-        <td class="mdc-data-table__cell">06:32</td>
-        <td class="mdc-data-table__cell">08:47</td>
-        <td class="mdc-data-table__cell">02:15<span> hours</span></td>
-        <td class="mdc-data-table__cell">2300<span>Ft</span></td>
-      </tr>
-    </template>
-
-    <!--headline-->
-    <form id="train-search" class="search-form">
-      <legend>
-        <h3 class="mdc-typography--headline3 mdc-theme--on-primary search-form__title">Trip-planner</h3>
-      </legend>
-
-      <div class="search-form--fileds">
-
-
-        <!--start location serach-->
-        <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"
-          data-mdc-auto-init="MDCTextField">
-          <i class="material-icons mdc-text-field__icon">location_on</i>
-          <input class="mdc-text-field__input" type="text" id="text-field-FROM-input" name="from">
-          <div class="mdc-notched-outline">
-            <div class="mdc-notched-outline__leading"></div>
-            <div class="mdc-notched-outline__notch">
-              <label for="text-field-hero-input" class="mdc-floating-label">From</label>
-            </div>
-            <div class="mdc-notched-outline__trailing"></div>
-          </div>
-        </div>
-
-        <!--arrow-->
-        <div class="search-form__icon">
-          <span class="material-icons">arrow_right_alt</span>
-        </div>
-
-        <!--destination location serach-->
-        <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"
-          data-mdc-auto-init="MDCTextField">
-          <i class="material-icons mdc-text-field__icon">location_on</i>
-          <input class="mdc-text-field__input" type="text" id="text-field-TO-input">
-          <div class="mdc-notched-outline">
-            <div class="mdc-notched-outline__leading"></div>
-            <div class="mdc-notched-outline__notch">
-              <label for="text-field-hero-input" class="mdc-floating-label">To</label>
-            </div>
-            <div class="mdc-notched-outline__trailing"></div>
-          </div>
-        </div>
-
-        <!--depart day serach-->
-        <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"
-          data-mdc-auto-init="MDCTextField">
-          <i class="material-icons mdc-text-field__icon">calendar_today</i>
-          <input class="mdc-text-field__input" id="text-field-WHEN-input">
-          <div class="mdc-notched-outline">
-            <div class="mdc-notched-outline__leading"></div>
-            <div class="mdc-notched-outline__notch">
-              <label for="text-field-hero-input" class="mdc-floating-label">Depart</label>
-            </div>
-            <div class="mdc-notched-outline__trailing"></div>
-          </div>
-        </div>
-
-        <!--return date search-->
-        <!--
-          <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"
-            data-mdc-auto-init="MDCTextField">
-            <i class="material-icons mdc-text-field__icon">calendar_today</i>
-            <input class="mdc-text-field__input" type="date" id="text-field-hero-input">
-            <div class="mdc-notched-outline">
-              <div class="mdc-notched-outline__leading"></div>
-              <div class="mdc-notched-outline__notch">
-                <label for="text-field-hero-input" class="mdc-floating-label">Return <i>(optional)</i></label>
-              </div>
-              <div class="mdc-notched-outline__trailing"></div>
-            </div>
-          </div>-->
-
-        <!--passenger age serach-->
-        <div class="mdc-select">
-          <div class="mdc-select__anchor demo-width-class">
-            <i class="mdc-select__dropdown-icon"></i>
-            <div class="mdc-select__selected-text"></div>
-            <span class="mdc-floating-label">Passengers</span>
-            <div class="mdc-line-ripple"></div>
-          </div>
-
-          <div class="mdc-select__menu mdc-menu mdc-menu-surface demo-width-class">
-            <ul class="mdc-list">
-              <li class="mdc-list-item mdc-list-item--selected" data-value="" aria-selected="true"></li>
-              <li class="mdc-list-item" data-value="adult">
-                Adult
-              </li>
-              <li class="mdc-list-item" data-value="youth">
-                Youth/Child
-              </li>
-              <li class="mdc-list-item" data-value="senior">
-                Senior
-              </li>
-            </ul>
-          </div>
-
-
-        </div>
-
-        <!--trip search button-->
-        <div class="finish-search">
-
-          <button class="mdc-button trip_form-button" data-mdc-auto-init="MDCRipple">
-            <h1 id="form_button"></h1>
-            <div class="mdc-button__ripple"></div>
-            <span class="mdc-button__label">Search</span>
-          </button>
-
-        </div>
-
-      </div>
-
-    </form>
-
-    <!--table-->
-    <div class="box my-box">
-      <div class="mdc-data-table">
-        <table class="mdc-data-table__table" aria-label="Dessert calories">
-          <thead>
-            <tr class="mdc-data-table__header-row">
-              <th class="mdc-data-table__header-cell" role="columnheader" scope="col">From</th>
-              <th class="mdc-data-table__header-cell" role="columnheader" scope="col">To</th>
-              <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Depart</th>
-              <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Arrive</th>
-              <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Time</th>
-              <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Price</th>
-            </tr>
-          </thead>
-          <tbody id="train-list" class="mdc-data-table__content">
-
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-  </div>
-
+  <!--content part-->
+  <%- include(content); %>
 
 
   <script>
@@ -304,7 +160,7 @@
 
     const MDCTopAppBar = mdc.topAppBar.MDCTopAppBar;
     //const MDCTabBar = mdc.tabbar.MDCTabBar;
-    const MDCSelect = mdc.select.MDCSelect;
+    //const MDCSelect = mdc.select.MDCSelect;
 
     //mdc.ripple.MDCRipple.attachTo(document.querySelector('.trip_form-button'));
 
@@ -312,13 +168,15 @@
     const topAppBar = new MDCTopAppBar(topAppBarElement);
     //const tabBar = new MDCTabBar(document.querySelector('.mdc-tab-bar'));
 
-    const select = new MDCSelect(document.querySelector('.mdc-select'));
+    //const select = new MDCSelect(document.querySelector('.mdc-select'));
 
 
 
+    /*
     select.listen('MDCSelect:change', () => {
       alert(`Selected option at index ${select.selectedIndex} with value "${select.value}"`);
     });
+    */
 
     //topAppBar.setScrollTarget(document.getElementById('main-content'));
     const drawer = document.getElementById('drawer').MDCDrawer;
@@ -327,7 +185,7 @@
     });
 
     const listEl = document.querySelector('.mdc-drawer .mdc-list');
-    const mainContentEl = document.querySelector('.main-content');
+    //const mainContentEl = document.querySelector('.main-content');
 
     /*listEl.addEventListener('click', (event) => {
       mainContentEl.querySelector('input, button').focus();

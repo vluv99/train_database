@@ -2,7 +2,7 @@
 
 Column name     | Type               | Description
 ------------    | -------------      | -------------
-id              | int                | **identifier** - auto increment
+id              | int                | **identifier** - auto increment **you can skip this, it's set to autofill the id** !!
 ismétlődés      | int                | **repetition** - the type of the repetition
 név             | string             | **train's name** - nickname for the train, so the users can easily remember *(eg.: "Stormy")*
 indulási idő    | (time/string) date | **depart time** - the train's depart time *(eg.: 06:00)*

@@ -13,8 +13,11 @@
     "@material/mwc-top-app-bar-fixed": "^0.14.1",
     "@webcomponents/webcomponentsjs": "^2.4.3",
     "body-parser": "^1.19.0",
+    "ejs": "^3.0.2",
     "express": "^4.17.1",
     "express-transform-bare-module-specifiers": "^1.0.3",
-    "oracledb": "^4.2.0"
+    "oracledb": "^4.2.0",
+    "pug": "^2.0.4",
+    "squirrelly": "^7.9.2"
   }
 }

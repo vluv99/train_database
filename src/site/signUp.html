@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="css/base/base.css">
     <link rel="stylesheet" type="text/css" href="css/base/mdc-fixes.css">
     <link rel="stylesheet" type="text/css" href="css/base/common.css">
+    <link rel="stylesheet" type="text/css" href="css/base/signUp.css">
     <link rel="stylesheet" type="text/css" href="css/theme.css">
 
     <title>Train'Spot</title>
@@ -31,50 +32,6 @@
                 </div>
             </section>
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end top-app__tab-bar">
-
-                <!--
-          <div class="mdc-tab-bar" role="tablist" data-mdc-auto-init="MDCTabBar">
-            <div class="mdc-tab-scroller">
-              <div class="mdc-tab-scroller__scroll-area">
-                <div class="mdc-tab-scroller__scroll-content">
-  
-                  <button class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0">
-                    <span class="mdc-tab__content">
-                      <span class="mdc-tab__icon material-icons" aria-hidden="true">person</span>
-                      <span class="mdc-tab__text-label">Profile</span>
-                    </span>
-                    <span class="mdc-tab-indicator mdc-tab-indicator--active">
-                      <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
-                    </span>
-                    <span class="mdc-tab__ripple"></span>
-                  </button>
-  
-                  <button class="mdc-tab mdc-tab" role="tab" aria-selected="true" tabindex="0">
-                    <span class="mdc-tab__content">
-                      <span class="mdc-tab__icon material-icons" aria-hidden="true">date_range</span>
-                      <span class="mdc-tab__text-label">History</span>
-                    </span>
-                    <span class="mdc-tab-indicator mdc-tab-indicator">
-                      <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
-                    </span>
-                    <span class="mdc-tab__ripple"></span>
-                  </button>
-  
-                  <button class="mdc-tab mdc-tab" role="tab" aria-selected="true" tabindex="0">
-                    <span class="mdc-tab__content">
-                      <span class="mdc-tab__icon material-icons" aria-hidden="true">exit_to_app</span>
-                      <span class="mdc-tab__text-label">Sign Out</span>
-                    </span>
-                    <span class="mdc-tab-indicator mdc-tab-indicator">
-                      <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
-                    </span>
-                    <span class="mdc-tab__ripple"></span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        -->
 
             </section>
         </div>
@@ -194,10 +151,67 @@
     <div class="mdc-top-app-bar--fixed-adjust content mdc-theme--surface">
 
         <!--headline-->
-        <form id="sign_up" class="search-form">
+        <form id="sign_up" class="signUp-form">
             <legend>
                 <h3 class="mdc-typography--headline3 mdc-theme--on-primary search-form__title">Sign Up</h3>
             </legend>
+
+            <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
+                <input class="mdc-text-field__input" type="text" id="signUp-username">
+                <div class="mdc-notched-outline  signUp-form-field">
+                  <div class="mdc-notched-outline__leading"></div>
+                  <div class="mdc-notched-outline__notch">
+                    <label for="text-field-hero-input" class="mdc-floating-label">Username</label>
+                  </div>
+                  <div class="mdc-notched-outline__trailing"></div>
+                </div>
+              </div>
+
+              <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
+                <input class="mdc-text-field__input" type="password" id="signUp-password">
+                <div class="mdc-notched-outline">
+                  <div class="mdc-notched-outline__leading"></div>
+                  <div class="mdc-notched-outline__notch">
+                    <label for="text-field-hero-input" class="mdc-floating-label">Password</label>
+                  </div>
+                  <div class="mdc-notched-outline__trailing"></div>
+                </div>
+              </div>
+
+              <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
+                <input class="mdc-text-field__input" type="text" id="signUp-name">
+                <div class="mdc-notched-outline">
+                  <div class="mdc-notched-outline__leading"></div>
+                  <div class="mdc-notched-outline__notch">
+                    <label for="text-field-hero-input" class="mdc-floating-label">Name</label>
+                  </div>
+                  <div class="mdc-notched-outline__trailing"></div>
+                </div>
+              </div>
+
+              <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
+                <input class="mdc-text-field__input" type="date" id="signUp-birthDate">
+                <div class="mdc-notched-outline">
+                  <div class="mdc-notched-outline__leading"></div>
+                  <div class="mdc-notched-outline__notch">
+                    <label for="text-field-hero-input" class="mdc-floating-label">Birth date</label>
+                  </div>
+                  <div class="mdc-notched-outline__trailing"></div>
+                </div>
+              </div>
+
+              <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
+                <input class="mdc-text-field__input" type="text" id="signUp-cardNumber">
+                <div class="mdc-notched-outline">
+                  <div class="mdc-notched-outline__leading"></div>
+                  <div class="mdc-notched-outline__notch">
+                    <label for="text-field-hero-input" class="mdc-floating-label">Card number</label>
+                  </div>
+                  <div class="mdc-notched-outline__trailing"></div>
+                </div>
+              </div>
+
+              <button class="mdc-button mdc-button--raised register--button">  <span class="mdc-button__ripple"></span>Register</button>
 
             <div class="search-form--fileds">
             </div>
@@ -221,13 +235,6 @@
         const topAppBar = new MDCTopAppBar(topAppBarElement);
         //const tabBar = new MDCTabBar(document.querySelector('.mdc-tab-bar'));
 
-        const select = new MDCSelect(document.querySelector('.mdc-select'));
-
-
-
-        select.listen('MDCSelect:change', () => {
-            alert(`Selected option at index ${select.selectedIndex} with value "${select.value}"`);
-        });
 
         //topAppBar.setScrollTarget(document.getElementById('main-content'));
         const drawer = document.getElementById('drawer').MDCDrawer;
@@ -248,7 +255,7 @@
 
     </script>
 
-    <script src="js/main.js"></script>
+    
 
 </body>
 

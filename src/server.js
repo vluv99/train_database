@@ -1,6 +1,7 @@
 
 var express = require('express');
-const transformMiddleware = require('express-transform-bare-module-specifiers').default;
+var squirrelly = require('squirrelly');
+//const transformMiddleware = require('express-transform-bare-module-specifiers').default;
 
 const bodyParser = require('body-parser');
 
@@ -9,11 +10,12 @@ var oracledb = require('oracledb');
 var connect = require('./Connection.js');
 
 var app = express();
+app.set('view engine', 'ejs')
 
 app.use(express.static('site'));
-app.use('/node_modules/*',express.static('node_modules'));
-app.use('*', transformMiddleware());
-app.use(bodyParser.urlencoded({ extended: false }));
+//app.use('/node_modules/*',express.static('node_modules'));
+//app.use('*', transformMiddleware());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Http Method: GET
@@ -34,7 +36,25 @@ app.get('/trips', function (req, res) {
          return;
       }
 
-      connection.execute("SELECT * FROM JEGY", {}, {
+
+
+      connection.execute(
+         `SELECT
+               traindb.menetrend.nev,
+               traindb.menetrend.indulasi_ido,
+               startstation.neve         AS "From",
+               traindb.allomas.neve      AS "To"
+         FROM
+                  traindb.menetrend
+               INNER JOIN traindb.megallo    "START" ON "START".menetrend_id = traindb.menetrend.id
+               INNER JOIN traindb.allomas    startstation ON "START".allomas = startstation.id
+               INNER JOIN traindb.megallo ON traindb.menetrend.id = traindb.megallo.menetrend_id
+               INNER JOIN traindb.allomas ON traindb.megallo.allomas = traindb.allomas.id
+         WHERE
+                  startstation.neve = '${req.query.from}'
+               AND "START".erkezik_ido = '00:00'
+               AND traindb.allomas.neve = '${req.query.to}'`
+         , {}, {
          outFormat: oracledb.OBJECT // Return the result as Object
       }, function (err, result) {
          if (err) {
@@ -62,8 +82,23 @@ app.get('/trips', function (req, res) {
    });
 });
 
+app.get('/', function (req, res) {
+   //squirrelly.definePartial('content',"asdasd1256");
+   //var text = squirrelly.renderFile('./views/index.squirrelly',{});
+   //res.send(text);
+   res.render('index', {content:"trip_planner", cache: false})
+})
 
+app.get('/sign-up', function (req, res) {
+   //squirrelly.definePartial('content',"asdasd1256");
+   //var text = squirrelly.renderFile('./views/index.squirrelly',{});
+   //res.send(text);
+   res.render('index', {content:"sign-up", cache: false})
+})
 
+app.get('*', function (req, res) {
+   res.send("asdasd");
+})
 
 var server = app.listen(8081, function () {
    var host = server.address().address

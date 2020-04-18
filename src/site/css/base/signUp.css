@@ -1,0 +1,17 @@
+
+.signUp-form{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 30px;
+}
+
+.signUp-form .mdc-text-field{
+    margin-bottom: 20px;
+    width: 350px;
+}
+
+.register--button{
+    margin-top: 20px;
+}
