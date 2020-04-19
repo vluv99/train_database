@@ -8,7 +8,7 @@ név             | string             | **train's name** - nickname for the trai
 indulási idő    | (time/string) date | **depart time** - the train's depart time *(eg.: 06:00)*
 hét napja       | int                | **weekdays** - specifies the day
 
-This table contains the schedule individually for each train. This table with the [*Megallo*_table]() will contain fully when and where the trains go.
+This table contains the schedule individually for each train. This table with the [*Megallo*_table](https://github.com/vluv99/train_database/blob/master/docs/megallo_table.md) will contain fully when and where the trains go.
 
 ## Types:
 
