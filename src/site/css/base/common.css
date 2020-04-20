@@ -190,3 +190,9 @@
 }   
 */
 
+#welcome-line{
+    text-align: center;
+    padding-bottom: 60px;
+    color: var(--mdc-theme-secondary);
+}
+

@@ -54,7 +54,7 @@
           </div>
         </div>
 
-        <!--depart day serach-->
+        <!--depart day serach
         <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"
           data-mdc-auto-init="MDCTextField">
           <i class="material-icons mdc-text-field__icon">calendar_today</i>
@@ -66,7 +66,7 @@
             </div>
             <div class="mdc-notched-outline__trailing"></div>
           </div>
-        </div>
+        </div>-->
 
         <!--return date search-->
         <!--
@@ -83,7 +83,7 @@
             </div>
           </div>-->
 
-        <!--passenger age serach-->
+        <!--passenger age serach
         <div class="mdc-select">
           <div class="mdc-select__anchor demo-width-class">
             <i class="mdc-select__dropdown-icon"></i>
@@ -108,7 +108,7 @@
           </div>
 
 
-        </div>
+        </div>-->
 
         <!--trip search button-->
         <div class="finish-search">
@@ -128,7 +128,7 @@
     <div class="box my-box">
       <div class="mdc-data-table">
         <table class="mdc-data-table__table" aria-label="Dessert calories">
-          <thead>
+          <thead id="train-list--thead">
             <tr class="mdc-data-table__header-row">
               <th class="mdc-data-table__header-cell" role="columnheader" scope="col">From</th>
               <th class="mdc-data-table__header-cell" role="columnheader" scope="col">To</th>
@@ -145,4 +145,14 @@
       </div>
     </div>
 
+    <h4 id="welcome-line" class="mdc-typography--headline4">Welcome on our page! Please choose your destination and have a nice trip!</h3>
+
   </div>
+
+  <script>
+    function showMask() {
+    var node = document.getElementById('train-list')
+    var visibility = node.style.visibility;
+    node.style.visibility = visibility == "visible" ? 'hidden' : "visible"
+}
+  </script>

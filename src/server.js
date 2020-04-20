@@ -4,6 +4,8 @@ var squirrelly = require('squirrelly');
 //const transformMiddleware = require('express-transform-bare-module-specifiers').default;
 
 const bodyParser = require('body-parser');
+var multer = require('multer');
+var upload = multer();
 
 const Trip = require('./data/Trip.js');
 var oracledb = require('oracledb');
@@ -17,26 +19,37 @@ app.use(express.static('site'));
 //app.use('*', transformMiddleware());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+//app.use(upload.array());
+
+function send_error(status,text,message) {
+   // Error connecting to DB
+   res.set('Content-Type', 'application/json');
+   res.status(status).send(JSON.stringify({
+      status: status,
+      message: text,
+      detailed_message: message
+   }));
+}
 
 // Http Method: GET
 // URI        : /user_profiles
 // Read all the user profiles
-app.get('/trips', function (req, res) {
+app.get('/trips',upload.none(), function (req, res) {
    "use strict";
+
+   var search = {};
+   search.from = req.query.from != undefined ? req.query.from : req.body.from
+   search.to = req.query.to != undefined ? req.query.to : req.body.to
+   
 
    oracledb.getConnection(connect, function (err, connection) {
       if (err) {
          // Error connecting to DB
-         res.set('Content-Type', 'application/json');
-         res.status(500).send(JSON.stringify({
-            status: 500,
-            message: "Error connecting to DB",
-            detailed_message: err.message
-         }));
+         send_error(500,"Error connecting to DB",err.message);
          return;
       }
 
-
+      
 
       connection.execute(
          `SELECT
@@ -51,9 +64,9 @@ app.get('/trips', function (req, res) {
                INNER JOIN traindb.megallo ON traindb.menetrend.id = traindb.megallo.menetrend_id
                INNER JOIN traindb.allomas ON traindb.megallo.allomas = traindb.allomas.id
          WHERE
-                  startstation.neve = '${req.query.from}'
+                  startstation.neve = '${search.from}'
                AND "START".erkezik_ido = '00:00'
-               AND traindb.allomas.neve = '${req.query.to}'`
+               AND traindb.allomas.neve = '${search.to}'`
          , {}, {
          outFormat: oracledb.OBJECT // Return the result as Object
       }, function (err, result) {
@@ -67,7 +80,8 @@ app.get('/trips', function (req, res) {
          } else {
             res.contentType('application/json').status(200);
             res.send(JSON.stringify(result.rows));
-            console.log(req);
+            console.log(req.body);
+            console.log(req.query);
          }
          // Release the connection
          connection.release(
@@ -90,10 +104,11 @@ app.get('/', function (req, res) {
 })
 
 app.get('/sign-up', function (req, res) {
-   //squirrelly.definePartial('content',"asdasd1256");
-   //var text = squirrelly.renderFile('./views/index.squirrelly',{});
-   //res.send(text);
    res.render('index', {content:"sign-up", cache: false})
+})
+
+app.get('/profile', function (req, res) {
+   res.render('index', {content:"profile", cache: false})
 })
 
 app.get('*', function (req, res) {
