@@ -10,7 +10,7 @@ document.getElementById("subbmit_button").onclick = () => {
 
     var price = randomizeInteger(1500, 5000);
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "/trips?" + queryString);
+    xhr.open("GET", "/api/train?" + queryString);
     xhr.onload = function (event) {
 
 
