@@ -27,13 +27,13 @@
       <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
         <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button">menu</button>
         <a class="mdc-top-app-bar__title top-app-bar__title" href="/">
-        
-          
-            <img class="top-app-bar__logo" src="./img/logo/logo.webp">
-            Train'Spot
-          
-        
-      </a>
+
+
+          <img class="top-app-bar__logo" src="./img/logo/logo.webp">
+          Train'Spot
+
+
+        </a>
       </section>
       <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end top-app__tab-bar">
 
@@ -86,7 +86,7 @@
           </button>
 
           <!--sign up button-->
-          <a class="mdc-button mdc-button--raised login_form-button" href="/sign-up">
+          <a class="mdc-button mdc-button--raised login_form-button" href="/sign_up">
             <span class="mdc-button__ripple"></span>Sign Up
           </a>
         </div>
@@ -111,39 +111,47 @@
           <span class="mdc-list-item__text">Trip-planner</span>
         </a>
 
-        <a class="mdc-list-item" href="#">
+        <a class="mdc-list-item" href="/purchase_history">
           <i class="material-icons mdc-list-item__graphic" aria-hidden="true">date_range</i>
           <span class="mdc-list-item__text">Purchase History</span>
         </a>
 
-        <a class="mdc-list-item" href="#">
+        <a class="mdc-list-item" href="/trains">
           <i class="material-icons mdc-list-item__graphic" aria-hidden="true">train</i>
           <span class="mdc-list-item__text">Trains now</span>
         </a>
 
-        <a class="mdc-list-item" href="#">
+        <a class="mdc-list-item" href="/stations">
           <i class="material-icons mdc-list-item__graphic" aria-hidden="true">house</i>
           <span class="mdc-list-item__text">Stations</span>
         </a>
 
         <!--only for workers-->
-        <a class="mdc-list-item" href="#">
+        <a class="mdc-list-item" href="/payments">
           <i class="material-icons mdc-list-item__graphic" aria-hidden="true">attach_money</i>
           <span class="mdc-list-item__text">Payments</span>
         </a>
 
         <!--only for workers-->
-        <a class="mdc-list-item" href="#">
+        <a class="mdc-list-item" href="/leaves">
           <i class="material-icons mdc-list-item__graphic" aria-hidden="true">event</i>
           <span class="mdc-list-item__text">Leaves</span>
         </a>
 
 
         <br>
+        <form class="list-log_out">
+          <button class="mdc-button logOut_form-button" data-mdc-auto-init="MDCRipple">
+            <div class="mdc-button__ripple"></div>
+            <i class="material-icons mdc-list-item__graphic log_out_icon" aria-hidden="true">exit_to_app</i>
+            <span class="mdc-button__label log_out_text">Sign Out</span>
+          </button>
+        </form>
+        <!--
         <a class="mdc-list-item" href="#">
           <i class="material-icons mdc-list-item__graphic log_out_icon" aria-hidden="true">exit_to_app</i>
-          <span class="mdc-list-item__text log_out_text">Leaves</span>
-        </a>
+          <span class="mdc-list-item__text log_out_text">Sign Out</span>
+        </a>-->
 
         <!--
         <div class="nav--logo">

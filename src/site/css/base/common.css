@@ -173,6 +173,10 @@
     color: var(--mdc-theme-primary) !important;
 }
 
+.list-log_out{
+    margin-left: 8px;
+}
+
 /*
 .nav_logo_box{
     display: flex;
