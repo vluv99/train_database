@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="css/base/profile.css">
+<link rel="stylesheet" type="text/css" href="/css/base/profile.css">
 
 <div class="mdc-top-app-bar--fixed-adjust content mdc-theme--surface">
     <div class="profile-box">
@@ -16,19 +16,19 @@
                 <div class="profile-labes">e-mail address: </div>
             </div>
             <div class="column">
-                <div class="profile-data">piri</div>
+                <div class="profile-data"><%- user.username %></div>
 
-                <div class="profile-data">Tóth Piroska</div>
+                <div class="profile-data"><%- user.name %></div>
 
-                <div class="profile-data">piri76@gmail.com</div>
+                <div class="profile-data"><%- user.email %></div>
 
             </div>
 
         </div>
 
-        <div class="mdc-line-ripple"></div>
+        <!--<div class="mdc-line-ripple"></div>-->
 
-        <form id="password-change" class="row">
+        <form id="password-change" class="row" onsubmit="return false">
             <legend>
                 <h5 class="mdc-typography--headline5 mdc-theme--on-primary profile-form__title">Change password</h3>
             </legend>

@@ -7,16 +7,16 @@ class Database{
         this.connection.catch(onError);
     }
 
-    runQuerry(querry,bind,meta, onResult, onError) {
+    runQuerry(querry,bind,meta, callback) {
        
         this.connection.then(
             function (connection) {
                 connection.execute(querry, {}, meta /*{outFormat: oracledb.OBJECT}*/,
                     function (err, result) {
                         if (err) {
-                            onError(err);
+                            callback(null, err);
                         } else {
-                            onResult(result);
+                            callback(result, null);
                         }
                         // Release the connection
                         /*

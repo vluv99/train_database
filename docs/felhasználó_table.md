@@ -6,3 +6,4 @@ felhasználónév  | string        | **user** - the nickname of the user, *must 
 út              | int           | **road** - foreign key, it connects the user and roads table
 teljes név      | int           | **name** - the users's name
 bankkártya      | string        | **card number** - the user's card data
+email           | string        | **email** - the user's email address

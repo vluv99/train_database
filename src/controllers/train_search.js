@@ -4,7 +4,7 @@ var router = express.Router();
 var multer = require('multer');
 var upload = multer();
 
-const Trip = require('../data/Trip.js');
+const Trip = require('../model/Trip.js');
 var DAO = require("../database/DAO.js");
 
 var dao = new DAO((err)=> {console.error(err)});

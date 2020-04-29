@@ -1,127 +1,79 @@
 
 var express = require('express');
-var squirrelly = require('squirrelly');
-//const transformMiddleware = require('express-transform-bare-module-specifiers').default;
 
 const bodyParser = require('body-parser');
 var multer = require('multer');
 var upload = multer();
 
-const Trip = require('./data/Trip.js');
-var oracledb = require('oracledb');
-var connect = require('./Connection.js');
+var cookieParser = require('cookie-parser');
+var session = require('express-session')
 
 var app = express();
 app.set('view engine', 'ejs')
 
+var passport = require('passport')
+require('./authenticate/passport')(passport);
+
+/*
+var LocalStrategy = require('passport-local').Strategy;
+
+var DAO = require("./database/DAO.js");
+
+var dao = new DAO((err)=> {console.error(err)});
+
+passport.use(new LocalStrategy(
+    function(username, password, done) {
+      dao.findUserByNicName(username, function (user, err) {
+       if (err) { return done(err); }
+       if (!user) {
+         return done(null, false, { message: 'Incorrect username.' });
+       }
+       if (!user.checkPassword(password)) {
+         return done(null, false, { message: 'Incorrect password.' });
+       }
+       return done(null, user);
+     }, );
+   }
+));
+
+passport.serializeUser(function(user, done) {
+   done(null, user.username);
+ });
+ 
+ passport.deserializeUser(function(id, done) {
+  dao.findUserByNicName(id, function(user, err) {
+     done(err, user);
+   });
+ });
+*/
+
 app.use(express.static('site'));
-//app.use('/node_modules/*',express.static('node_modules'));
-//app.use('*', transformMiddleware());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cookieParser());
+app.use(session({
+   secret: 'keyboard cat',
+   resave: true,
+   saveUninitialized: false,
+   cookie: { secure: false }
+ }));
+app.use(passport.initialize());
+app.use(passport.session());
 //app.use(upload.array());
 
-function send_error(status,text,message) {
-   // Error connecting to DB
-   res.set('Content-Type', 'application/json');
-   res.status(status).send(JSON.stringify({
-      status: status,
-      message: text,
-      detailed_message: message
-   }));
-}
 
+
+app.post('/login',
+  passport.authenticate('local'),
+  function(req, res) {
+    // If this function gets called, authentication was successful.
+    // `req.user` contains the authenticated user.
+    res.redirect('/profile/' + req.user.username);
+  });
 
 app.use('/', require('./routes/'))
 
-/*
-
-// Http Method: GET
-// URI        : /user_profiles
-// Read all the user profiles
-app.get('/trips',upload.none(), function (req, res) {
-   "use strict";
-
-   var search = {};
-   search.from = req.query.from != undefined ? req.query.from : req.body.from
-   search.to = req.query.to != undefined ? req.query.to : req.body.to
-   
-
-   oracledb.getConnection(connect, function (err, connection) {
-      if (err) {
-         // Error connecting to DB
-         send_error(500,"Error connecting to DB",err.message);
-         return;
-      }
-
-      
-
-      connection.execute(
-         `SELECT
-               traindb.menetrend.nev,
-               traindb.menetrend.indulasi_ido,
-               startstation.neve         AS "From",
-               traindb.allomas.neve      AS "To"
-         FROM
-                  traindb.menetrend
-               INNER JOIN traindb.megallo    "START" ON "START".menetrend_id = traindb.menetrend.id
-               INNER JOIN traindb.allomas    startstation ON "START".allomas = startstation.id
-               INNER JOIN traindb.megallo ON traindb.menetrend.id = traindb.megallo.menetrend_id
-               INNER JOIN traindb.allomas ON traindb.megallo.allomas = traindb.allomas.id
-         WHERE
-                  startstation.neve = '${search.from}'
-               AND "START".erkezik_ido = '00:00'
-               AND traindb.allomas.neve = '${search.to}'`
-         , {}, {
-         outFormat: oracledb.OBJECT // Return the result as Object
-      }, function (err, result) {
-         if (err) {
-            res.set('Content-Type', 'application/json');
-            res.status(500).send(JSON.stringify({
-               status: 500,
-               message: "Error getting the jegyek",
-               detailed_message: err.message
-            }));
-         } else {
-            res.contentType('application/json').status(200);
-            res.send(JSON.stringify(result.rows));
-            console.log(req.body);
-            console.log(req.query);
-         }
-         // Release the connection
-         connection.release(
-            function (err) {
-               if (err) {
-                  console.error(err.message);
-               } else {
-                  console.log("GET /user_profiles : Connection released");
-               }
-            });
-      });
-   });
-});
-
-app.get('/', function (req, res) {
-   //squirrelly.definePartial('content',"asdasd1256");
-   //var text = squirrelly.renderFile('./views/index.squirrelly',{});
-   //res.send(text);
-   res.render('index', {content:"trip_planner", cache: false})
-})
-
-app.get('/sign-up', function (req, res) {
-   res.render('index', {content:"sign-up", cache: false})
-})
-
-app.get('/profile', function (req, res) {
-   res.render('index', {content:"profile", cache: false})
-})
-
-app.get('*', function (req, res) {
-   res.send("asdasd");
-})
-*/
-
-
+//Start the webserver
 var server = app.listen(8081, function () {
    var host = server.address().address
    var port = server.address().port

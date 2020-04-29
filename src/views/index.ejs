@@ -10,10 +10,10 @@
   <link href="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.css" rel="stylesheet">
 
 
-  <link rel="stylesheet" type="text/css" href="css/base/base.css">
-  <link rel="stylesheet" type="text/css" href="css/base/mdc-fixes.css">
-  <link rel="stylesheet" type="text/css" href="css/base/common.css">
-  <link rel="stylesheet" type="text/css" href="css/theme.css">
+  <link rel="stylesheet" type="text/css" href="/css/base/base.css">
+  <link rel="stylesheet" type="text/css" href="/css/base/mdc-fixes.css">
+  <link rel="stylesheet" type="text/css" href="/css/base/common.css">
+  <link rel="stylesheet" type="text/css" href="/css/theme.css">
 
   <title>Train'Spot</title>
 
@@ -29,7 +29,7 @@
         <a class="mdc-top-app-bar__title top-app-bar__title" href="/">
 
 
-          <img class="top-app-bar__logo" src="./img/logo/logo.webp">
+          <img class="top-app-bar__logo" src="/img/logo/logo.webp">
           Train'Spot
 
 
@@ -47,49 +47,48 @@
       <nav class="mdc-list">
         <h4 class="mdc-typography--headline4 --mdc-theme-primary search-form__title">Log In</h4>
 
-        <div class="nav_login_box">
-
-          <div class="nav_login_field">
-            <!--username-->
-            <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
-              <input class="mdc-text-field__input" type="email" id="text-field-username-input">
-              <div class="mdc-notched-outline">
-                <div class="mdc-notched-outline__leading"></div>
-                <div class="mdc-notched-outline__notch">
-                  <label for="text-field-hero-input" class="mdc-floating-label">Username</label>
+        <form action="/login" method="post">
+          <div class="nav_login_box">
+            <div class="nav_login_field">
+              <!--username-->
+              <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
+                <input class="mdc-text-field__input" type="usernam" id="text-field-username-input" name="username">
+                <div class="mdc-notched-outline">
+                  <div class="mdc-notched-outline__leading"></div>
+                  <div class="mdc-notched-outline__notch">
+                    <label for="text-field-hero-input" class="mdc-floating-label">Username</label>
+                  </div>
+                  <div class="mdc-notched-outline__trailing"></div>
                 </div>
-                <div class="mdc-notched-outline__trailing"></div>
+              </div>
+
+              <!--password-->
+              <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
+                <input class="mdc-text-field__input" type="password" id="text-field-password-input" name="password">
+                <div class="mdc-notched-outline">
+                  <div class="mdc-notched-outline__leading"></div>
+                  <div class="mdc-notched-outline__notch">
+                    <label for="text-field-hero-input" class="mdc-floating-label">Password</label>
+                  </div>
+                  <div class="mdc-notched-outline__trailing"></div>
+                </div>
               </div>
             </div>
-
-            <!--password-->
-            <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
-              <input class="mdc-text-field__input" type="password" id="text-field-password-input">
-              <div class="mdc-notched-outline">
-                <div class="mdc-notched-outline__leading"></div>
-                <div class="mdc-notched-outline__notch">
-                  <label for="text-field-hero-input" class="mdc-floating-label">Password</label>
-                </div>
-                <div class="mdc-notched-outline__trailing"></div>
-              </div>
-            </div>
-
           </div>
-        </div>
 
-        <!--login button-->
-        <div class="login_button_box">
-          <button class="mdc-button login_form-button" data-mdc-auto-init="MDCRipple">
-            <h1 id="form_button"></h1>
-            <div class="mdc-button__ripple"></div>
-            <span class="mdc-button__label">Log in</span>
-          </button>
+          <!--login button-->
+          <div class="login_button_box">
+            <button class="mdc-button login_form-button" data-mdc-auto-init="MDCRipple" type="submit">
+              <h1 id="form_button"></h1>
+              <div class="mdc-button__ripple"></div>
+              <span class="mdc-button__label">Log in</span>
+            </button>
 
-          <!--sign up button-->
-          <a class="mdc-button mdc-button--raised login_form-button" href="/sign_up">
-            <span class="mdc-button__ripple"></span>Sign Up
-          </a>
-        </div>
+            <!--sign up button-->
+            <a class="mdc-button mdc-button--raised login_form-button" href="/sign_up">
+              <span class="mdc-button__ripple"></span>Sign Up
+            </a>
+          </div>
         </form>
 
         <br>
@@ -127,9 +126,9 @@
         </a>
 
         <!--only for workers-->
-        <a class="mdc-list-item" href="/payments">
-          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">attach_money</i>
-          <span class="mdc-list-item__text">Payments</span>
+        <a class="mdc-list-item" href="/worker_data">
+          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">accessibility</i>
+          <span class="mdc-list-item__text">Worker Data</span>
         </a>
 
         <!--only for workers-->
@@ -212,7 +211,6 @@
 
   </script>
 
-  <script src="js/main.js"></script>
 
 </body>
 
