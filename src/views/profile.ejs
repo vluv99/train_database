@@ -28,19 +28,19 @@
 
         <!--<div class="mdc-line-ripple"></div>-->
 
-        <form id="password-change" class="row" onsubmit="return false">
+        <form id="password-change" class="row" method="POST" action="/api/change-password">
             <legend>
                 <h5 class="mdc-typography--headline5 mdc-theme--on-primary profile-form__title">Change password</h3>
             </legend>
             <div class="column">
-                <div class="mdc-text-field">
-                    <input class="mdc-text-field__input" id="profile-oldPass">
+                <div class="mdc-text-field"  data-mdc-auto-init="MDCTextField">
+                    <input type="password" class="mdc-text-field__input" id="profile-oldPass" name="oldPassword">
                     <div class="mdc-line-ripple"></div>
                     <label for="text-field-hero-input" class="mdc-floating-label">Old password</label>
                 </div>
 
-                <div class="mdc-text-field">
-                    <input class="mdc-text-field__input" id="profile-newPass">
+                <div class="mdc-text-field" data-mdc-auto-init="MDCTextField">
+                    <input type="password" class="mdc-text-field__input" id="profile-newPass" name="newPassword" autocomplete="off">
                     <div class="mdc-line-ripple"></div>
                     <label for="text-field-hero-input" class="mdc-floating-label">New password</label>
                 </div>
