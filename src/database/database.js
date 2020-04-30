@@ -11,27 +11,35 @@ class Database{
        
         this.connection.then(
             function (connection) {
-                connection.execute(querry, {}, meta /*{outFormat: oracledb.OBJECT}*/,
-                    function (err, result) {
-                        if (err) {
-                            callback(null, err);
-                        } else {
-                            callback(result, null);
-                        }
-                        // Release the connection
-                        /*
-                        connection.release(
-                            function (err) {
-                                if (err) {
-                                    console.error(err.message);
-                                } else {
-                                    console.log("Connection released");
-                                }
+                //console.log("in the database now!");
+
+                try {
+                    connection.execute(querry, {}, meta /*{outFormat: oracledb.OBJECT}*/,
+                        function (err, result) {
+                            //console.log("in the database func now!");
+                            if (err) {
+                                callback(null, err);
+                            } else {
+                                callback(result, null);
                             }
-                        );
-                        */
-                    }
-                );
+                            // Release the connection
+                            /*
+                            connection.release(
+                                function (err) {
+                                    if (err) {
+                                        console.error(err.message);
+                                    } else {
+                                        console.log("Connection released");
+                                    }
+                                }
+                            );
+                            */
+                        }
+                    );
+                } catch (error) {
+                    console.log(error);
+                }
+                
             }
         )
         

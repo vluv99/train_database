@@ -8,6 +8,7 @@ router.get('/', controller.index)
 router.use('/api/train', require('../controllers/cont_train_search'))
 router.use('/profile/*', require('../controllers/profile'))
 router.use('/api/stations', require('../controllers/cont_station_search'))
+router.use('/api/change-password', require('../controllers/cont_password_change'))
 
 
 router.get('/sign_up', require('../controllers/sign_up'))

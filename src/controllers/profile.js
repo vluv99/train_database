@@ -4,7 +4,7 @@ var router = express.Router();
 var {ensureAuthenticated} = require('../authenticate/auth.js')
 
 router.get('/',
-    
+    ensureAuthenticated,
     function (req, res) {
         console.log(req.user);
         if(req.user)

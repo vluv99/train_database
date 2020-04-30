@@ -4,11 +4,11 @@ var oracledb = require('oracledb');
 var User = require('../model/user');
 var Station = require('../model/station');
 
-class DAO{
+class DAO {
 
-    constructor(onError){
+    constructor(onError) {
         this.db = new Database(onError);
-    }    
+    }
 
     searchTrains(params, callback) {
         this.db.runQuerry(
@@ -21,67 +21,91 @@ class DAO{
         )
     };
 
-    getStationByName(name, callback){
+    getStationByName(name, callback) {
         this.db.runQuerry(
-        `SELECT * FROM ALLOMAS WHERE ALLOMAS.NEVE = '${name}'`,
-        {},
-        {
-            outFormat: oracledb.OUT_FORMAT_OBJECT
-        },
-        (res, err)=>{
-            if(res != null){
-                //console.log(res);
-                let data = Station.load( res.rows[0]);
-                res = data;
-                
-            }
-            
-            callback(res,err)
-        })
+            `SELECT * FROM ALLOMAS WHERE ALLOMAS.NEVE = '${name}'`,
+            {},
+            {
+                outFormat: oracledb.OUT_FORMAT_OBJECT
+            },
+            (res, err) => {
+                if (res != null) {
+                    //console.log(res);
+                    let data = Station.load(res.rows[0]);
+                    res = data;
+
+                }
+
+                callback(res, err)
+            })
     }
 
-    getAllStations(callback){
+    getAllStations(callback) {
         this.db.runQuerry(
-        `SELECT * FROM ALLOMAS`,
-        {},
-        {
-            outFormat: oracledb.OUT_FORMAT_OBJECT
-        },
-        (res, err)=>{
-            if(res != null){
-                //console.log(res);
-                //let data = Station.load( res.rows[0]);
-                //res = data;
-                var map = res.rows.map(function mappingFunction(value, index, array){
-                    return Station.load(value);
-                })
-                res = map;
-            }
-            
-            callback(res,err)
-        })
+            `SELECT * FROM ALLOMAS`,
+            {},
+            {
+                outFormat: oracledb.OUT_FORMAT_OBJECT
+            },
+            (res, err) => {
+                if (res != null) {
+                    //console.log(res);
+                    //let data = Station.load( res.rows[0]);
+                    //res = data;
+                    var map = res.rows.map(function mappingFunction(value, index, array) {
+                        return Station.load(value);
+                    })
+                    res = map;
+                }
+
+                callback(res, err)
+            })
     }
 
-    findUserByNicName(name, callback){
+    findUserByNicName(name, callback) {
         this.db.runQuerry(
             `SELECT * FROM FELHASZNALO WHERE FELHASZNALONEV = '${name}'`,
             {},
             {
                 outFormat: oracledb.OUT_FORMAT_OBJECT
             },
-            (res, err)=>{
-                if(res != null){
-                    //console.log(res);
-                    let data = User.load( res.rows[0]);
+            (res, err) => {
+                if (res != null) {
+                    console.log(res);
+                    let data = User.load(res.rows[0]);
                     res = data;
-                    
+
                 }
-                
-                callback(res,err)
+
+                callback(res, err)
             }
-            
+
         )
     };
+
+    changePassword(username, newPassword, callback) {
+        //console.log("in the DAO now!");
+        this.db.runQuerry(
+            `UPDATE FELHASZNALO SET JELSZO = '${newPassword}' WHERE FELHASZNALONEV = '${username}'`,
+            {},
+            {
+                autoCommit:true
+                //outFormat: oracledb.OUT_FORMAT_OBJECT
+            },
+            (res, err) => {
+                //console.log("in the DAO err now!");
+                if (res != null) {
+                    console.log("user password changed: ");
+                    console.log(res);
+                    //let data = User.load( res.rows[0]);
+                    //res = data;
+
+                }
+
+                callback(res, err)
+            }
+        );
+    }
 
 }
 
