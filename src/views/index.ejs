@@ -45,6 +45,8 @@
   <aside id="drawer" class="mdc-drawer mdc-drawer--modal" data-mdc-auto-init="MDCDrawer">
     <div class="mdc-drawer__content">
       <nav class="mdc-list">
+
+        <% if (!user) { %>
         <h4 class="mdc-typography--headline4 --mdc-theme-primary search-form__title">Log In</h4>
 
         <form action="/login" method="post">
@@ -90,30 +92,38 @@
             </a>
           </div>
         </form>
+        <% } %>
 
         <br>
+        <% if (user) { %>
         <!--logged in text-->
         <div class="logged_text_box">
           <h3 class="drawer_h3">You are logged in as
-            <div class="login">piri</div>
+            <div class="login"><%- user.username %></div>
           </h3>
         </div>
+        <% } %>
+
         <br>
         <!--menu option buttons-->
+        <% if (user) { %>
         <a class="mdc-list-item" href="/profile">
           <i class="material-icons mdc-list-item__graphic" aria-hidden="true">person</i>
           <span class="mdc-list-item__text">Profile</span>
         </a>
+        <% } %>
 
         <a class="mdc-list-item" href="/">
           <i class="material-icons mdc-list-item__graphic" aria-hidden="true">near_me</i>
           <span class="mdc-list-item__text">Trip-planner</span>
         </a>
 
+        <% if (user) { %>
         <a class="mdc-list-item" href="/purchase_history">
           <i class="material-icons mdc-list-item__graphic" aria-hidden="true">date_range</i>
           <span class="mdc-list-item__text">Purchase History</span>
         </a>
+        <% } %>
 
         <a class="mdc-list-item" href="/trains">
           <i class="material-icons mdc-list-item__graphic" aria-hidden="true">train</i>
@@ -125,39 +135,32 @@
           <span class="mdc-list-item__text">Stations</span>
         </a>
 
+        <% if (user) { %>
         <!--only for workers-->
         <a class="mdc-list-item" href="/worker_data">
           <i class="material-icons mdc-list-item__graphic" aria-hidden="true">accessibility</i>
           <span class="mdc-list-item__text">Worker Data</span>
         </a>
+        <% } %>
 
+        <% if (user) { %>
         <!--only for workers-->
         <a class="mdc-list-item" href="/leaves">
           <i class="material-icons mdc-list-item__graphic" aria-hidden="true">event</i>
           <span class="mdc-list-item__text">Leaves</span>
         </a>
+        <% } %>
 
-
+        <% if (user) { %>
         <br>
-        <form class="list-log_out">
+        <form class="list-log_out" method="POST" action="/sign_out">
           <button class="mdc-button logOut_form-button" data-mdc-auto-init="MDCRipple">
             <div class="mdc-button__ripple"></div>
             <i class="material-icons mdc-list-item__graphic log_out_icon" aria-hidden="true">exit_to_app</i>
             <span class="mdc-button__label log_out_text">Sign Out</span>
           </button>
         </form>
-        <!--
-        <a class="mdc-list-item" href="#">
-          <i class="material-icons mdc-list-item__graphic log_out_icon" aria-hidden="true">exit_to_app</i>
-          <span class="mdc-list-item__text log_out_text">Sign Out</span>
-        </a>-->
-
-        <!--
-        <div class="nav--logo">
-          <img src="./img/logo/logo.webp">
-          Train'Spot
-        </div>
-        -->
+        <% } %>
       </nav>
 
     </div>

@@ -19,7 +19,7 @@ router.get('/',upload.none(), function (req, res) {
     },
     (err)=>{
         console.error(err);
-        res.status(500).send("Database Error");
+        res.status(500).send("Database Error with trip search");
     })
     
 })
