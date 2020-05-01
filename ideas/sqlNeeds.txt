@@ -1,0 +1,50 @@
+1. jegyhez
+	- vételi dátum
+	- típus (adult, youth..etc
+	- végső ár
+	
+2. törölni EMP és DEPT táblákat, valamiért ezet belekerültek egy régi lekérdezésből
+	
+3. dolgozó táblában változtatások
+	- egy új sort berakni [FELHASZNALONEV] nevvel, ami a felhasználót és a dolgozót köti össze,
+	- szóval foreign key-et is kell tenni ebbe a táblába, hogy elérjük a felhasználókat
+	- mivel felhasználó táblában eltároljuk, hogy mi a neve és birthdate, így azokat a sorokat ki kell venni, hogy ne legyen data-duplication (dolgozó táblából kell kivenni)
+
+4. egy dolgozo lekérdezés ahol:
+	- név
+	- szül dátum
+	- lakcím (akiket amúgy át kellene írni bővebbre, mint pl ne csak 'Szeged' legyen ott hanem '6722 Szeged, Valami u. 62.')
+	- adószám
+	- munkája
+	- fizetése -> adatokat kéri le egy bizonyos dolgozó id alakpján (szóval select*.. where ="kokrát adat a példa kedvéért")
+	
+5. egy lekérdezés, ami megállapítja a felhasználóról, hogy dolgozó-e !FONTOS!
+	- szóval where = felhasználónév ... és valahogy ellenőrizni, hogy adott felhasználó dolgozó-e
+
+6. lekérdezés, ami a kap 2 állomást és egy dátumot, és visszaadja a az akkori A-ból B-be menő járatokat !!!FONTOS!!!
+	- jelentleg csak 2 állomásos verzió működik, nincs dátum hozzáadva :(
+	- + plusz mezőként visszaadja, hogy van-e az adott menetrendhez tartozó út aznap (ez egy boolean lenne [NUMBER(0,1)] típus 0-hamis 1-igaz)
+	
+7. a szabadság táblához hozzáadni egy [OK] sort, ami [VARCHAR2(200)] típus legyen .. kb 200 talán elég lesz. 
+	- ezt a dolgozó fogja beírni, hogy indokot adni miért van vagy miért kér szabadségot.
+	
+8. szabadságokhoz, insert function, ami kap 2 dátumot(kezdet, vég), egy okot és egy dolgozo id-t, majd hozzáadáskor ezeket beállítja és alapértelmezetten 0-rá állítja az elfogadottságot.
+
+Ha megvannak a lekérdezések, akkor mentsétek ki a procedure-s ba
+A 6.- a legfontosabb és valószínűleg a legnehezebb is :/ !
+
+
+9. kap egy felhasználót, menetrend id-t és egy dátumot és, majd visszaadja: !!FONTOS!! --még nem teljes..valahogy price management
+	- from
+	- to
+	- date
+	- depart time -> adatokat adja vissza
+	
+10. a jegyek táblából indulva lekérdezés, bemenet=felhasználó és kilistázza az alapján a következőket:
+	- indulasi datum
+	- honnan
+	- hová megy
+	- mikor indult a vonat
+	- price ..vhogy
+
+

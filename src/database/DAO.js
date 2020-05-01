@@ -17,7 +17,19 @@ class DAO {
             {
                 outFormat: oracledb.OUT_FORMAT_OBJECT
             },
-            callback
+            (res, err) => {
+                if (res != null) {
+                    //console.log(res);
+                    //let data = Station.load( res.rows[0]);
+                    //res = data;
+                    var map = res.rows.map(function mappingFunction(value, index, array) {
+                        return Station.load(value);
+                    })
+                    res = map;
+                }
+
+                callback(res, err)
+            }
         )
     };
 

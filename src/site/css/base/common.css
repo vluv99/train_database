@@ -200,3 +200,6 @@
     color: var(--mdc-theme-secondary);
 }
 
+.hover-effect:hover{
+    transform: scale(0.1);
+}

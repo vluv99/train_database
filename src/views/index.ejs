@@ -107,7 +107,7 @@
         <br>
         <!--menu option buttons-->
         <% if (user) { %>
-        <a class="mdc-list-item" href="/profile">
+        <a class="mdc-list-item" href="/profile/<%- user.username %>">
           <i class="material-icons mdc-list-item__graphic" aria-hidden="true">person</i>
           <span class="mdc-list-item__text">Profile</span>
         </a>
@@ -125,9 +125,9 @@
         </a>
         <% } %>
 
-        <a class="mdc-list-item" href="/trains">
-          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">train</i>
-          <span class="mdc-list-item__text">Trains now</span>
+        <a class="mdc-list-item" href="/salary_management">
+          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">attach_money</i>
+          <span class="mdc-list-item__text">Salary Management</span>
         </a>
 
         <a class="mdc-list-item" href="/stations">

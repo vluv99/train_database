@@ -15,7 +15,7 @@ router.get('/sign_up', require('../controllers/sign_up'))
 router.use('/sign_out', require('../controllers/sign_out'))
 
 router.get('/purchase_history', require('../controllers/purchase_history'))
-router.get('/trains', require('../controllers/trains'))
+router.get('/salary_management', require('../controllers/salary_management'))
 router.use('/stations', require('../controllers/stations'))
 router.get('/worker_data', require('../controllers/worker_data'))
 router.get('/leaves', require('../controllers/leaves'))

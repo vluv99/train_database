@@ -1,19 +1,18 @@
   <!--!content!-->
   <div class="mdc-top-app-bar--fixed-adjust content mdc-theme--surface">
 
-    <template id="train-list__row">
+    <template id="purchase-list__row">
       <tr class="mdc-data-table__row">
-        <td class="mdc-data-table__cell">Szeged</td>
+        <td class="mdc-data-table__cell">12/APR/2020</td>
         <td class="mdc-data-table__cell">Budapest-Nyugati</td>
-        <td class="mdc-data-table__cell">06:32</td>
+        <td class="mdc-data-table__cell">Szeged</td>
         <td class="mdc-data-table__cell">08:47</td>
-        <td class="mdc-data-table__cell">02:15<span> hours</span></td>
         <td class="mdc-data-table__cell">2300<span>Ft</span></td>
       </tr>
     </template>
 
     <!--headline-->
-    <form id="train-search" class="search-form" onsubmit="return false">
+    <form id="purchase-search" class="search-form">
       <legend>
         <h3 class="mdc-typography--headline3 mdc-theme--on-primary search-form__title">Purchase history</h3>
       </legend>
@@ -73,30 +72,27 @@
     <div class="box my-box">
       <div class="mdc-data-table">
         <table class="mdc-data-table__table" aria-label="Dessert calories">
-          <thead id="train-list--thead">
+          <thead id="purchase-list--thead">
             <tr class="mdc-data-table__header-row">
+              <th class="mdc-data-table__header-cell" role="columnheader" scope="col">On</th>
               <th class="mdc-data-table__header-cell" role="columnheader" scope="col">From</th>
               <th class="mdc-data-table__header-cell" role="columnheader" scope="col">To</th>
               <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Depart</th>
-              <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Arrive</th>
-              <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Time</th>
               <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Price</th>
             </tr>
           </thead>
-          <tbody id="train-list" class="mdc-data-table__content">
+          <tbody id="purchase-list" class="mdc-data-table__content">
 
           </tbody>
         </table>
       </div>
     </div>
 
-    <h4 id="welcome-line" class="mdc-typography--headline4">Welcome on our page! Please choose your destination and have a nice trip!</h3>
-
   </div>
 
   <script>
     function showMask() {
-    var node = document.getElementById('train-list')
+    var node = document.getElementById('purchase-list')
     var visibility = node.style.visibility;
     node.style.visibility = visibility == "visible" ? 'hidden' : "visible"
 }

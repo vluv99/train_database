@@ -1,0 +1,158 @@
+<!--!content!-->
+<div class="mdc-top-app-bar--fixed-adjust content mdc-theme--surface">
+
+  <template id="train-list__row">
+    <tr class="mdc-data-table__row">
+      <td class="mdc-data-table__cell">Kiss János</td>
+      <td class="mdc-data-table__cell">02/FEB/1980</td>
+      <td class="mdc-data-table__cell">01/APR/2020 - 30/APR/2020</td>
+      <td class="mdc-data-table__cell">200</td>
+      <td class="mdc-data-table__cell">800 <span>Ft/hours</span></td>
+      <td class="mdc-data-table__cell">160000<span> Ft</span></td>
+      <td class="mdc-data-table__cell">
+        <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"
+          data-mdc-auto-init="MDCTextField">
+          <i class="material-icons mdc-text-field__icon">attach_money</i>
+          <input class="mdc-text-field__input" type="number" id="text-field-FROM-input" name="edit-payment">
+          <div class="mdc-notched-outline">
+            <div class="mdc-notched-outline__leading"></div>
+            <div class="mdc-notched-outline__notch">
+              <label for="text-field-hero-input" class="mdc-floating-label">New hourly wage</label>
+              <!--for the hourly wage-->
+            </div>
+            <div class="mdc-notched-outline__trailing"></div>
+          </div>
+        </div>
+      </td>
+      <td class="mdc-data-table__cell">
+        <button id="subbmit_button" class="mdc-button trip_form-button" data-mdc-auto-init="MDCRipple">
+          <div class="mdc-button__ripple"></div>
+          <span class="mdc-button__label">Edit Changes</span>
+        </button> </td>
+    </tr>
+  </template>
+
+  <!--headline-->
+  <form id="salary-add" class="search-form">
+    <legend>
+      <h3 class="mdc-typography--headline3 mdc-theme--on-primary search-form__title">Salary Management</h3>
+    </legend>
+
+    <div class="search-form--fileds">
+
+      <!--worker's name-->
+      <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"
+        data-mdc-auto-init="MDCTextField">
+        <i class="material-icons mdc-text-field__icon">person</i>
+        <input class="mdc-text-field__input" type="text" id="text-field-NAME-input" name="name">
+        <div class="mdc-notched-outline">
+          <div class="mdc-notched-outline__leading"></div>
+          <div class="mdc-notched-outline__notch">
+            <label for="text-field-hero-input" class="mdc-floating-label">Name</label>
+          </div>
+          <div class="mdc-notched-outline__trailing"></div>
+        </div>
+      </div>
+
+      <!--worker's bithdate-->
+      <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"
+        data-mdc-auto-init="MDCTextField">
+        <i class="material-icons mdc-text-field__icon">calendar_today</i>
+        <input class="mdc-text-field__input" type="date" id="text-field-BIRTH-input" name="birth">
+        <div class="mdc-notched-outline">
+          <div class="mdc-notched-outline__leading"></div>
+          <div class="mdc-notched-outline__notch">
+            <label for="text-field-hero-input" class="mdc-floating-label">Birthdate</label>
+          </div>
+          <div class="mdc-notched-outline__trailing"></div>
+        </div>
+      </div>
+
+      <!--month-->
+      <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"
+        data-mdc-auto-init="MDCTextField">
+        <i class="material-icons mdc-text-field__icon">date_range</i>
+        <input class="mdc-text-field__input" type="date" id="text-field-DATE-input" name="date">
+        <div class="mdc-notched-outline">
+          <div class="mdc-notched-outline__leading"></div>
+          <div class="mdc-notched-outline__notch">
+            <label for="text-field-hero-input" class="mdc-floating-label">Date</label>
+          </div>
+          <div class="mdc-notched-outline__trailing"></div>
+        </div>
+      </div>
+
+      <!--worked hours-->
+      <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"
+        data-mdc-auto-init="MDCTextField">
+        <i class="material-icons mdc-text-field__icon">history</i>
+        <input class="mdc-text-field__input" type="number" id="text-field-HOURS-input" name="hours">
+        <div class="mdc-notched-outline">
+          <div class="mdc-notched-outline__leading"></div>
+          <div class="mdc-notched-outline__notch">
+            <label for="text-field-hero-input" class="mdc-floating-label">Worked Hours</label>
+          </div>
+          <div class="mdc-notched-outline__trailing"></div>
+        </div>
+      </div>
+
+      <!--hourly wage-->
+      <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"
+        data-mdc-auto-init="MDCTextField">
+        <i class="material-icons mdc-text-field__icon">attach_money</i>
+        <input class="mdc-text-field__input" type="number" id="text-field-FROM-input" name="edit-payment">
+        <div class="mdc-notched-outline">
+          <div class="mdc-notched-outline__leading"></div>
+          <div class="mdc-notched-outline__notch">
+            <label for="text-field-hero-input" class="mdc-floating-label">Hourly wage</label>
+          </div>
+          <div class="mdc-notched-outline__trailing"></div>
+        </div>
+      </div>
+
+      <!--add-->
+      <div class="finish-search">
+
+        <button id="subbmit_button" class="mdc-button salary_form-button" data-mdc-auto-init="MDCRipple">
+          <div class="mdc-button__ripple"></div>
+          <span class="mdc-button__label">Add</span>
+        </button>
+
+      </div>
+
+    </div>
+
+  </form>
+
+  <!--table-->
+  <div class="box my-box">
+    <div class="mdc-data-table">
+      <table class="mdc-data-table__table" aria-label="Dessert calories">
+        <thead id="salary-list--thead">
+          <tr class="mdc-data-table__header-row">
+            <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Worker</th>
+            <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Worker's Birthdate</th>
+            <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Date</th>
+            <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Worker Hours</th>
+            <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Hourly Wage</th>
+            <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Wage</th>
+            <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Edit</th>
+            <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Approve Changes</th>
+          </tr>
+        </thead>
+        <tbody id="salary-list" class="mdc-data-table__content">
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function showMask() {
+    var node = document.getElementById('salary-list')
+    var visibility = node.style.visibility;
+    node.style.visibility = visibility == "visible" ? 'hidden' : "visible"
+  }
+</script>
