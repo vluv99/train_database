@@ -1,0 +1,35 @@
+
+.buy-form__title{
+    text-align: center;
+    margin-left: -70px;
+}
+
+.train_data{
+    text-align: center;
+    margin: auto;
+    display: flex;
+    flex-flow: column;
+    color: var(--mdc-theme-secondary);
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.train-data--row{
+    display: flex;
+    flex-flow: row;
+    flex-grow: 1;
+    text-align: left;
+}
+
+.label, .data{
+    /*margin-right: 20px;*/
+    width: 200px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: larger;
+}
+
+.buy-form{
+    align-items: center;
+}

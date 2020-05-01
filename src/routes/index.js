@@ -19,5 +19,6 @@ router.get('/trains', require('../controllers/trains'))
 router.use('/stations', require('../controllers/stations'))
 router.get('/worker_data', require('../controllers/worker_data'))
 router.get('/leaves', require('../controllers/leaves'))
+router.get('/ticket_buy', require('../controllers/cont_ticket_buy'))
 
 module.exports = router;

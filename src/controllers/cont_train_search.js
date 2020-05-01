@@ -13,7 +13,7 @@ router.get('/',upload.none(), function (req, res) {
     
     dao.searchTrains(null, (result)=>{
         res.contentType('application/json').status(200);
-             res.send(JSON.stringify(result.rows));
+             res.send(JSON.stringify(result));
              console.log(req.body);
              console.log(req.query);
     },
