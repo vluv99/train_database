@@ -113,6 +113,14 @@
         </a>
         <% } %>
 
+        <% if (user) { %>
+          <!--only for workers-->
+          <a class="mdc-list-item" href="/worker_data">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">accessibility</i>
+            <span class="mdc-list-item__text">Worker profile</span>
+          </a>
+        <% } %>
+
         <a class="mdc-list-item" href="/">
           <i class="material-icons mdc-list-item__graphic" aria-hidden="true">near_me</i>
           <span class="mdc-list-item__text">Trip-planner</span>
@@ -125,23 +133,26 @@
         </a>
         <% } %>
 
+        <% if (user) { %>
         <a class="mdc-list-item" href="/salary_management">
           <i class="material-icons mdc-list-item__graphic" aria-hidden="true">attach_money</i>
           <span class="mdc-list-item__text">Salary Management</span>
         </a>
+        <% } %>
+
+        <% if (user) { %>
+          <a class="mdc-list-item" href="/worker_management">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">assignment_ind</i>
+            <span class="mdc-list-item__text">Worker Management</span>
+          </a>
+          <% } %>
 
         <a class="mdc-list-item" href="/stations">
           <i class="material-icons mdc-list-item__graphic" aria-hidden="true">house</i>
           <span class="mdc-list-item__text">Stations</span>
         </a>
 
-        <% if (user) { %>
-        <!--only for workers-->
-        <a class="mdc-list-item" href="/worker_data">
-          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">accessibility</i>
-          <span class="mdc-list-item__text">Worker Data</span>
-        </a>
-        <% } %>
+
 
         <% if (user) { %>
         <!--only for workers-->

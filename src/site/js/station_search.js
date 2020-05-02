@@ -13,29 +13,29 @@ function createRow(data) {
     td[1].textContent = data.peronCount;
 
     if (data.ticketOffice == 1) {
-        td[2].textContent = "yes";
+        td[2].textContent = "yes";//check - google icon
     } else {
-        td[2].textContent = "no";
+        td[2].textContent = "no";//close
     }
     if (data.disabledServices == 1) {
         td[3].textContent = "yes";
     } else {
-        td[2].textContent = "no";
+        td[3].textContent = "no";
     }
     if (data.info_pont == 1) {
         td[4].textContent = "yes";
     } else {
-        td[2].textContent = "no";
+        td[4].textContent = "no";
     }
     if (data.cafe == 1) {
         td[5].textContent = "yes";
     } else {
-        td[2].textContent = "no";
+        td[5].textContent = "no";
     }
     if (data.wifi == 1) {
         td[6].textContent = "yes";
     } else {
-        td[2].textContent = "no";
+        td[6].textContent = "no";
     }
 
 

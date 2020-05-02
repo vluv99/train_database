@@ -3,13 +3,13 @@
 <div class="mdc-top-app-bar--fixed-adjust content mdc-theme--surface">
 
     <!--headline-->
-    <form id="sign_up" class="signUp-form">
+    <form id="sign_up" class="signUp-form" method="POST" action="/api/registration">
         <legend>
             <h3 class="mdc-typography--headline3 mdc-theme--on-primary search-form__title">Sign Up</h3>
         </legend>
 
         <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
-            <input class="mdc-text-field__input" type="text" id="signUp-username">
+            <input class="mdc-text-field__input" type="text" id="signUp-username" name="user">
             <div class="mdc-notched-outline  signUp-form-field">
               <div class="mdc-notched-outline__leading"></div>
               <div class="mdc-notched-outline__notch">
@@ -20,7 +20,7 @@
           </div>
 
           <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
-            <input class="mdc-text-field__input" type="password" id="signUp-password">
+            <input class="mdc-text-field__input" type="password" id="signUp-password" name="pass">
             <div class="mdc-notched-outline">
               <div class="mdc-notched-outline__leading"></div>
               <div class="mdc-notched-outline__notch">
@@ -31,7 +31,7 @@
           </div>
 
           <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
-            <input class="mdc-text-field__input" type="email" id="signUp-mail">
+            <input class="mdc-text-field__input" type="email" id="signUp-mail" name="mail">
             <div class="mdc-notched-outline">
               <div class="mdc-notched-outline__leading"></div>
               <div class="mdc-notched-outline__notch">
@@ -42,7 +42,7 @@
           </div>
 
           <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
-            <input class="mdc-text-field__input" type="text" id="signUp-name">
+            <input class="mdc-text-field__input" type="text" id="signUp-name" name="name">
             <div class="mdc-notched-outline">
               <div class="mdc-notched-outline__leading"></div>
               <div class="mdc-notched-outline__notch">
@@ -53,7 +53,7 @@
           </div>
 
           <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
-            <input class="mdc-text-field__input" type="date" id="signUp-birthDate">
+            <input class="mdc-text-field__input" type="date" id="signUp-birthDate" name="birth">
             <div class="mdc-notched-outline">
               <div class="mdc-notched-outline__leading"></div>
               <div class="mdc-notched-outline__notch">
@@ -64,7 +64,7 @@
           </div>
 
           <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
-            <input class="mdc-text-field__input" type="text" id="signUp-cardNumber">
+            <input class="mdc-text-field__input" type="text" id="signUp-cardNumber" name="card">
             <div class="mdc-notched-outline">
               <div class="mdc-notched-outline__leading"></div>
               <div class="mdc-notched-outline__notch">

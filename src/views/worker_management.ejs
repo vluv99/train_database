@@ -1,0 +1,209 @@
+<!--!content!-->
+<div class="mdc-top-app-bar--fixed-adjust content mdc-theme--surface">
+
+    <template id="worker-list__row">
+      <tr class="mdc-data-table__row">
+        <td class="mdc-data-table__cell">Kiss János</td>
+        <td class="mdc-data-table__cell">02/FEB/1980</td>
+        <td class="mdc-data-table__cell">6710 Szeged. Sándor utca 5.</td>
+        <td class="mdc-data-table__cell">873461291</td>
+        <td class="mdc-data-table__cell">Kalaúz</td>
+        <td class="mdc-data-table__cell">800 <span>Ft/hours</span></td>
+        <td class="mdc-data-table__cell">kis_janos</td>
+        <td class="mdc-data-table__cell">
+            <input class="table_input" type="text" id="text-field-FROM-input" name="edit-payment">
+        </td>
+        <td class="mdc-data-table__cell">
+          <button id="subbmit_button" class="mdc-button trip_form-button" data-mdc-auto-init="MDCRipple">
+            <div class="mdc-button__ripple"></div>
+            <span class="mdc-button__label">Edit Changes</span>
+          </button> </td>
+      </tr>
+    </template>
+  
+    <!--headline-->
+    <form id="worker-add" class="search-form">
+      <legend>
+        <h3 class="mdc-typography--headline3 mdc-theme--on-primary search-form__title">Worker Management</h3>
+      </legend>
+  
+      <div class="search-form--fileds">
+  
+        <!--worker's name-->
+        <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"
+          data-mdc-auto-init="MDCTextField">
+          <i class="material-icons mdc-text-field__icon">person</i>
+          <input class="mdc-text-field__input" type="text" id="text-field-NAME-input" name="name">
+          <div class="mdc-notched-outline">
+            <div class="mdc-notched-outline__leading"></div>
+            <div class="mdc-notched-outline__notch">
+              <label for="text-field-hero-input" class="mdc-floating-label">Name</label>
+            </div>
+            <div class="mdc-notched-outline__trailing"></div>
+          </div>
+        </div>
+  
+        <!--worker's bithdate-->
+        <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"
+          data-mdc-auto-init="MDCTextField">
+          <i class="material-icons mdc-text-field__icon">calendar_today</i>
+          <input class="mdc-text-field__input" type="date" id="text-field-BIRTH-input" name="birth">
+          <div class="mdc-notched-outline">
+            <div class="mdc-notched-outline__leading"></div>
+            <div class="mdc-notched-outline__notch">
+              <label for="text-field-hero-input" class="mdc-floating-label">Birthdate</label>
+            </div>
+            <div class="mdc-notched-outline__trailing"></div>
+          </div>
+        </div>
+
+        <!--worker's address-->
+        <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"
+          data-mdc-auto-init="MDCTextField">
+          <i class="material-icons mdc-text-field__icon">house</i>
+          <input class="mdc-text-field__input" type="text" id="text-field-ADDRESS-input" name="address">
+          <div class="mdc-notched-outline">
+            <div class="mdc-notched-outline__leading"></div>
+            <div class="mdc-notched-outline__notch">
+              <label for="text-field-hero-input" class="mdc-floating-label">Address</label>
+            </div>
+            <div class="mdc-notched-outline__trailing"></div>
+          </div>
+        </div>
+
+        <!--tax number-->
+        <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"
+          data-mdc-auto-init="MDCTextField">
+          <i class="material-icons mdc-text-field__icon">assignment_ind</i>
+          <input class="mdc-text-field__input" type="number" id="text-field-TAX-input" name="tax">
+          <div class="mdc-notched-outline">
+            <div class="mdc-notched-outline__leading"></div>
+            <div class="mdc-notched-outline__notch">
+              <label for="text-field-hero-input" class="mdc-floating-label">Tax Number</label>
+            </div>
+            <div class="mdc-notched-outline__trailing"></div>
+          </div>
+        </div>
+
+        <!--worker's work-->
+        <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"
+          data-mdc-auto-init="MDCTextField">
+          <i class="material-icons mdc-text-field__icon">work_outline</i>
+          <input class="mdc-text-field__input" type="text" id="text-field-WORK-input" name="work">
+          <div class="mdc-notched-outline">
+            <div class="mdc-notched-outline__leading"></div>
+            <div class="mdc-notched-outline__notch">
+              <label for="text-field-hero-input" class="mdc-floating-label">Work Field</label>
+            </div>
+            <div class="mdc-notched-outline__trailing"></div>
+          </div>
+        </div>
+  
+        <!--hourly wage-->
+        <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"
+          data-mdc-auto-init="MDCTextField">
+          <i class="material-icons mdc-text-field__icon">attach_money</i>
+          <input class="mdc-text-field__input" type="number" id="text-field-HOURLY-input" name="hourly">
+          <div class="mdc-notched-outline">
+            <div class="mdc-notched-outline__leading"></div>
+            <div class="mdc-notched-outline__notch">
+              <label for="text-field-hero-input" class="mdc-floating-label">Hourly wage</label>
+            </div>
+            <div class="mdc-notched-outline__trailing"></div>
+          </div>
+        </div>
+
+        <!--username-->
+        <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"
+          data-mdc-auto-init="MDCTextField">
+          <i class="material-icons mdc-text-field__icon">tag_faces</i>
+          <input class="mdc-text-field__input" type="text" id="text-field-USER-input" name="user">
+          <div class="mdc-notched-outline">
+            <div class="mdc-notched-outline__leading"></div>
+            <div class="mdc-notched-outline__notch">
+              <label for="text-field-hero-input" class="mdc-floating-label">Username</label>
+            </div>
+            <div class="mdc-notched-outline__trailing"></div>
+          </div>
+        </div>
+
+        <!--email-->
+        <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"
+          data-mdc-auto-init="MDCTextField">
+          <i class="material-icons mdc-text-field__icon">alternate_email</i>
+          <input class="mdc-text-field__input" type="email" id="text-field-MAIL-input" name="mail">
+          <div class="mdc-notched-outline">
+            <div class="mdc-notched-outline__leading"></div>
+            <div class="mdc-notched-outline__notch">
+              <label for="text-field-hero-input" class="mdc-floating-label">E-Mail</label>
+            </div>
+            <div class="mdc-notched-outline__trailing"></div>
+          </div>
+        </div>
+
+        <!--bankcard-->
+        <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"
+          data-mdc-auto-init="MDCTextField">
+          <i class="material-icons mdc-text-field__icon">credit_card</i>
+          <input class="mdc-text-field__input" type="email" id="text-field-CARD-input" name="card">
+          <div class="mdc-notched-outline">
+            <div class="mdc-notched-outline__leading"></div>
+            <div class="mdc-notched-outline__notch">
+              <label for="text-field-hero-input" class="mdc-floating-label">Bank Card</label>
+            </div>
+            <div class="mdc-notched-outline__trailing"></div>
+          </div>
+        </div>
+  
+        <!--add-->
+        <div class="finish-search">
+  
+          <button id="subbmit_button" class="mdc-button salary_form-button" data-mdc-auto-init="MDCRipple">
+            <div class="mdc-button__ripple"></div>
+            <span class="mdc-button__label">Add</span>
+          </button>
+  
+        </div>
+  
+      </div>
+  
+    </form>
+  
+    <!--table-->
+    <div class="box my-box">
+      <div class="mdc-data-table">
+        <table class="mdc-data-table__table" aria-label="Dessert calories">
+          <thead id="worker-list--thead">
+            <tr class="mdc-data-table__header-row">
+              <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Worker</th>
+              <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Birthdate</th>
+              <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Address</th>
+              <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Tax Number</th>
+              <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Work Field</th>
+              <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Hourly Wage</th>
+              <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Username</th>
+              <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Edit Wage</th>
+              <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Approve Changes</th>
+            </tr>
+          </thead>
+          <form>
+            <tbody id="worker-list" class="mdc-data-table__content">
+  
+  
+            </tbody>
+          </form>
+        </table>
+      </div>
+    </div>
+  
+  </div>
+  
+  <script>
+    function showMask() {
+      var node = document.getElementById('worker-list')
+      var visibility = node.style.visibility;
+      node.style.visibility = visibility == "visible" ? 'hidden' : "visible"
+    }
+  </script>
+  
+  <script src="js/worker_management.js"></script>

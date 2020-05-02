@@ -5,5 +5,14 @@ module.exports = {
       }
       //req.flash('error_msg', 'Please log in to view that resource');
       res.redirect('/');
-    }
+    },
+
+    /*
+    ensureWorker: function(req, res, next) {
+      if (req.isAuthenticated() && req.user.worker == true) {
+        return next();
+      }
+      //req.flash('error_msg', 'Please log in to view that resource');
+      res.redirect('/');
+    }*/
 }

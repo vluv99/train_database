@@ -2,7 +2,6 @@
 <div class="mdc-top-app-bar--fixed-adjust content mdc-theme--surface">
 
   <template id="train-list__row">
-    <a href="/ticket_buy">
       <tr class="mdc-data-table__row hover-effect">
         <td class="mdc-data-table__cell">Szeged</td>
         <td class="mdc-data-table__cell">Budapest-Nyugati</td>
@@ -10,8 +9,13 @@
         <td class="mdc-data-table__cell">08:47</td>
         <td class="mdc-data-table__cell">02:15<span> hours</span></td>
         <td class="mdc-data-table__cell">2300<span>Ft</span></td>
+        <td class="mdc-data-table__cell">
+          <button id="buy_button" class="mdc-button trip_form-button" data-mdc-auto-init="MDCRipple">
+            <div class="mdc-button__ripple"></div>
+            <span class="mdc-button__label">Buy ticket</span>
+          </button>
+        </td>
       </tr>
-    </a>
   </template>
 
   <!--headline-->
@@ -60,7 +64,7 @@
       <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"
         data-mdc-auto-init="MDCTextField">
         <i class="material-icons mdc-text-field__icon">calendar_today</i>
-        <input class="mdc-text-field__input" id="text-field-WHEN-input">
+        <input class="mdc-text-field__input" type="date" id="text-field-WHEN-input" name="day">
         <div class="mdc-notched-outline">
           <div class="mdc-notched-outline__leading"></div>
           <div class="mdc-notched-outline__notch">
@@ -113,6 +117,7 @@
             <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Arrive</th>
             <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Time</th>
             <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Price</th>
+            <th class="mdc-data-table__header-cell" role="columnheader" scope="col"></th>
           </tr>
         </thead>
         <tbody id="train-list" class="mdc-data-table__content">
