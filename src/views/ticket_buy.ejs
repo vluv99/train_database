@@ -32,12 +32,13 @@
 
       <div class="train-data--row">
         <div class="label">Price: </div>
-        <div class="data">3520 <span>Ft/adult</span></div>
+        <div class="data"><%- data.price %> <span>Ft/adult</span></div>
       </div>
+      <br>
 
-      <div class="train-data--row">
+      <div style="border-bottom: 1px;border-bottom-style: solid;" class="train-data--row" id="finalPrice">
         <div class="label">Final price: </div>
-        <div class="data">3520 <span>Ft</span></div>
+        <div class="data" ><span id="finalPrice_number">1</span> <span>Ft</span></div>
         <!--count if the selected one adult, or youth or senior with 50% or 90% off-->
         <!--10x the price if its a group buy than 20% off-->
       </div>

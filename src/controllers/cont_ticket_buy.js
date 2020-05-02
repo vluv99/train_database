@@ -12,6 +12,7 @@ router.get('/', function (req, res) {
 
     dao.getTrip(req.query.from,req.query.to,dateFormat(req.query.day),req.query.id,(result,err)=>{
         result.day = req.query.day;
+        result.price = req.query.price;
         render('ticket_buy', req, res, result);
 
     });
