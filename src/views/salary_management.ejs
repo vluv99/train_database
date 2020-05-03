@@ -7,11 +7,17 @@
     <tr class="mdc-data-table__row">
       <td class="mdc-data-table__cell">05/MAY/2020</td>
       <td class="mdc-data-table__cell">8</td>
+      <td class="mdc-data-table__cell">
+        <button id="delete_button" class="mdc-button trip_form-button" data-mdc-auto-init="MDCRipple">
+          <div class="mdc-button__ripple"></div>
+          <span class="mdc-button__label">Delete</span>
+        </button> 
+      </td>
     </tr>
   </template>
 
   <!--headline-->
-  <form id="salary-add" class="search-form">
+  <form id="salary-add" class="search-form" method="POST" action="/api/worker_salary/add_hours">
     <legend>
       <h3 class="mdc-typography--headline3 mdc-theme--on-primary search-form__title">Salary Management</h3>
     </legend>
@@ -33,15 +39,15 @@
 
       </div>
       <div class="column">
-        <div class="profile-data">Szabó Zoé</div>
+        <div class="profile-data"><%- data.name %></div>
 
-        <div class="profile-data">27-JAN-72</div>
+        <div class="profile-data"><%- data.birthDate %></div>
 
-        <div class="profile-data">Szeged, Jakab L. u 63.</div>
+        <div class="profile-data"><%- data.addrress %></div>
 
-        <div class="profile-data">542524851</div>
+        <div class="profile-data"><%- data.tax %></div>
 
-        <div class="profile-data">Takarító</div>
+        <div class="profile-data"><%- data.field %></div>
 
         <div class="profile-data">196847 <span> Ft/Month</span></div>
 
@@ -50,6 +56,8 @@
     </div>
 
     <div class="search-form--fileds">
+
+      <input hidden name="id", value="<%- data.id %>">
 
       <!--worked hours on that day-->
       <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"
@@ -101,6 +109,7 @@
           <tr class="mdc-data-table__header-row">
             <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Work Day</th>
             <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Worked Hours</th>
+            <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Delete Data</th>
           </tr>
         </thead>
         <form>
@@ -123,4 +132,4 @@
   }
 </script>
 
-<script src="js/worker_management.js"></script>
+<script src="js/salary_management.js"></script>

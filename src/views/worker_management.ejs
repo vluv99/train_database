@@ -4,32 +4,39 @@
     <template id="worker-list__row">
       <tr class="mdc-data-table__row">
         <td class="mdc-data-table__cell">Kiss János</td>
-        <td class="mdc-data-table__cell">02/FEB/1980</td>
+        <!--<td class="mdc-data-table__cell">02/FEB/1980</td>-->
         <td class="mdc-data-table__cell">6710 Szeged. Sándor utca 5.</td>
         <td class="mdc-data-table__cell">873461291</td>
         <td class="mdc-data-table__cell">Kalaúz</td>
         <td class="mdc-data-table__cell">800 <span>Ft/hours</span></td>
         <td class="mdc-data-table__cell">kis_janos</td>
         <td class="mdc-data-table__cell">
-            <input class="table_input" type="text" id="text-field-FROM-input" name="edit-payment">
+            <input id="hourlyWage" class="table_input" type="text" name="edit-payment">
         </td>
         <td class="mdc-data-table__cell">
           <button id="subbmit_button" class="mdc-button trip_form-button" data-mdc-auto-init="MDCRipple">
             <div class="mdc-button__ripple"></div>
             <span class="mdc-button__label">Edit Changes</span>
-          </button> </td>
+          </button> 
+        </td>
+        <td class="mdc-data-table__cell">
+          <button id="goTo_button" class="mdc-button trip_form-button" data-mdc-auto-init="MDCRipple">
+            <div class="mdc-button__ripple"></div>
+            <span class="mdc-button__label">Add</span>
+          </button> 
+        </td>
       </tr>
     </template>
   
     <!--headline-->
-    <form id="worker-add" class="search-form">
+    <form id="worker-add" class="search-form" method="POST" action="/api/workers/add_worker">
       <legend>
         <h3 class="mdc-typography--headline3 mdc-theme--on-primary search-form__title">Worker Management</h3>
       </legend>
   
       <div class="search-form--fileds">
   
-        <!--worker's name-->
+        <!--worker's name
         <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"
           data-mdc-auto-init="MDCTextField">
           <i class="material-icons mdc-text-field__icon">person</i>
@@ -41,9 +48,9 @@
             </div>
             <div class="mdc-notched-outline__trailing"></div>
           </div>
-        </div>
+        </div>-->
   
-        <!--worker's bithdate-->
+        <!--worker's bithdate
         <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"
           data-mdc-auto-init="MDCTextField">
           <i class="material-icons mdc-text-field__icon">calendar_today</i>
@@ -55,7 +62,7 @@
             </div>
             <div class="mdc-notched-outline__trailing"></div>
           </div>
-        </div>
+        </div>-->
 
         <!--worker's address-->
         <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"
@@ -127,7 +134,7 @@
           </div>
         </div>
 
-        <!--email-->
+        <!--email
         <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"
           data-mdc-auto-init="MDCTextField">
           <i class="material-icons mdc-text-field__icon">alternate_email</i>
@@ -139,13 +146,13 @@
             </div>
             <div class="mdc-notched-outline__trailing"></div>
           </div>
-        </div>
+        </div>-->
 
-        <!--bankcard-->
+        <!--bankcard
         <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"
           data-mdc-auto-init="MDCTextField">
           <i class="material-icons mdc-text-field__icon">credit_card</i>
-          <input class="mdc-text-field__input" type="email" id="text-field-CARD-input" name="card">
+          <input class="mdc-text-field__input" type="number" id="text-field-CARD-input" name="card">
           <div class="mdc-notched-outline">
             <div class="mdc-notched-outline__leading"></div>
             <div class="mdc-notched-outline__notch">
@@ -153,7 +160,7 @@
             </div>
             <div class="mdc-notched-outline__trailing"></div>
           </div>
-        </div>
+        </div>-->
   
         <!--add-->
         <div class="finish-search">
@@ -176,7 +183,7 @@
           <thead id="worker-list--thead">
             <tr class="mdc-data-table__header-row">
               <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Worker</th>
-              <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Birthdate</th>
+              <!--<th class="mdc-data-table__header-cell" role="columnheader" scope="col">Birthdate</th>-->
               <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Address</th>
               <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Tax Number</th>
               <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Work Field</th>
@@ -184,6 +191,7 @@
               <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Username</th>
               <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Edit Wage</th>
               <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Approve Changes</th>
+              <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Add Work Hours</th>
             </tr>
           </thead>
           <form>

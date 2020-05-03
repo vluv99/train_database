@@ -92,85 +92,87 @@
             </a>
           </div>
         </form>
+        <br>
+        <% } else { %>
+          
+          <br>
+
+          <!--logged in text-->
+          <div class="logged_text_box">
+            <h3 class="drawer_h3">You are logged in as
+              <div class="login"><%- user.username %></div>
+            </h3>
+          </div>
         <% } %>
 
         <br>
-        <% if (user) { %>
-        <!--logged in text-->
-        <div class="logged_text_box">
-          <h3 class="drawer_h3">You are logged in as
-            <div class="login"><%- user.username %></div>
-          </h3>
-        </div>
-        <% } %>
-
-        <br>
-        <!--menu option buttons-->
-        <% if (user) { %>
-        <a class="mdc-list-item" href="/profile/<%- user.username %>">
-          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">person</i>
-          <span class="mdc-list-item__text">Profile</span>
-        </a>
-        <% } %>
-
-        <% if (user) { %>
-          <!--only for workers-->
-          <a class="mdc-list-item" href="/worker_data">
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">accessibility</i>
-            <span class="mdc-list-item__text">Worker profile</span>
-          </a>
-        <% } %>
 
         <a class="mdc-list-item" href="/">
           <i class="material-icons mdc-list-item__graphic" aria-hidden="true">near_me</i>
           <span class="mdc-list-item__text">Trip-planner</span>
         </a>
 
-        <% if (user) { %>
-        <a class="mdc-list-item" href="/purchase_history">
-          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">date_range</i>
-          <span class="mdc-list-item__text">Purchase History</span>
-        </a>
-        <% } %>
-
-        <% if (user) { %>
-        <a class="mdc-list-item" href="/salary_management">
-          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">attach_money</i>
-          <span class="mdc-list-item__text">Salary Management</span>
-        </a>
-        <% } %>
-
-        <% if (user) { %>
-          <a class="mdc-list-item" href="/worker_management">
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">assignment_ind</i>
-            <span class="mdc-list-item__text">Worker Management</span>
-          </a>
-          <% } %>
-
         <a class="mdc-list-item" href="/stations">
           <i class="material-icons mdc-list-item__graphic" aria-hidden="true">house</i>
           <span class="mdc-list-item__text">Stations</span>
         </a>
 
-
+        <br>
 
         <% if (user) { %>
-        <!--only for workers-->
-        <a class="mdc-list-item" href="/leaves">
-          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">event</i>
-          <span class="mdc-list-item__text">Leaves</span>
-        </a>
+          <!--menu option buttons-->
+          
+          <a class="mdc-list-item" href="/profile/<%- user.username %>">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">person</i>
+            <span class="mdc-list-item__text">Profile</span>
+          </a>
+          
+          <a class="mdc-list-item" href="/purchase_history">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">date_range</i>
+            <span class="mdc-list-item__text">Purchase History</span>
+          </a>
+
+          <% if (user.worker) { %>
+              <!--only for workers-->
+              <a class="mdc-list-item" href="/worker_data">
+                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">accessibility</i>
+                <span class="mdc-list-item__text">Worker profile</span>
+              </a>
+
+              <a class="mdc-list-item" href="/leaves">
+                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">event</i>
+                <span class="mdc-list-item__text">Leaves</span>
+              </a>
+
+              <br>
+            
+              <% if (user.worker.field == "Admin") { %>
+              <!--<a class="mdc-list-item" href="/salary_management">
+                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">attach_money</i>
+                <span class="mdc-list-item__text">Salary Management</span>
+              </a>-->
+              
+
+              <a class="mdc-list-item" href="/worker_management">
+                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">assignment_ind</i>
+                <span class="mdc-list-item__text">Worker Management</span>
+              </a>
+              <% } %>
+          <% } %>
+
         <% } %>
 
+        
+
         <% if (user) { %>
-        <br>
-        <form class="list-log_out" method="POST" action="/sign_out">
-          <button class="mdc-button logOut_form-button" data-mdc-auto-init="MDCRipple">
-            <div class="mdc-button__ripple"></div>
-            <i class="material-icons mdc-list-item__graphic log_out_icon" aria-hidden="true">exit_to_app</i>
-            <span class="mdc-button__label log_out_text">Sign Out</span>
-          </button>
-        </form>
+          <br>
+          <form class="list-log_out" method="POST" action="/sign_out">
+            <button class="mdc-button logOut_form-button" data-mdc-auto-init="MDCRipple">
+              <div class="mdc-button__ripple"></div>
+              <i class="material-icons mdc-list-item__graphic log_out_icon" aria-hidden="true">exit_to_app</i>
+              <span class="mdc-button__label log_out_text">Sign Out</span>
+            </button>
+          </form>
         <% } %>
       </nav>
 

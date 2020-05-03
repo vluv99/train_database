@@ -12,7 +12,8 @@ class Salary{
         let salary = new Salary();
         salary.name = data.NEV;
         salary.birthDate = data.SZULETESI_DATUM;
-        salary.date = data.date;        //TODO: inish the databe version of these data
+        salary.date = data.date;        //TODO: inish the databe version of these data 
+        //NOT IN USE
         salary.workedHours = data.workedHours;
         salary.HourlyWage = data.HourlyWage;
         salary.wage = data.wage;

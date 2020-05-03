@@ -6,7 +6,7 @@ class User{
         this.bankCardNumber = "";
         this.password = "";
         this.email = "";
-        this.worker = false;
+        this.worker = null;
     }
 
     static load(data){

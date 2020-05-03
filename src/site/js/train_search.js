@@ -1,4 +1,3 @@
-
 var template = document.getElementById('train-list__row');
 var form = document.getElementById("train-search");
 

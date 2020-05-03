@@ -1,89 +1,111 @@
-  <!--!content!-->
-  <div class="mdc-top-app-bar--fixed-adjust content mdc-theme--surface">
+<!--!content!-->
+<div class="mdc-top-app-bar--fixed-adjust content mdc-theme--surface">
 
-    <template id="leave-list__row">
-      <tr class="mdc-data-table__row">
-        <td class="mdc-data-table__cell">Dentist</td>
-        <td class="mdc-data-table__cell">12-APR-2020</td>
-        <td class="mdc-data-table__cell">yes</td>
-      </tr>
-    </template>
+  <template id="leave-list__row">
+    <tr class="mdc-data-table__row">
+      <td class="mdc-data-table__cell">12-APR-2020</td>
+      <td class="mdc-data-table__cell">13-APR-2020</td>
+      <td class="mdc-data-table__cell">Dentist</td>
+      <td class="mdc-data-table__cell">yes</td>
+    </tr>
+  </template>
 
-    <!--headline-->
-    <form id="leave-search" class="search-form" onsubmit="return false">
-      <legend>
-        <h3 class="mdc-typography--headline3 mdc-theme--on-primary search-form__title">Leaves</h3>
-      </legend>
+  <!--headline-->
+  <form id="leave-add" class="search-form" method="POST" action="/api/leaves/add_leave">
+    <legend>
+      <h3 class="mdc-typography--headline3 mdc-theme--on-primary search-form__title">Leaves</h3>
+    </legend>
 
-      <div class="search-form--fileds">
+    <div class="search-form--fileds">
 
-
-        <!--add reason for leave box-->
-        <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"
-          data-mdc-auto-init="MDCTextField">
-          <!--<i class="material-icons mdc-text-field__icon">location_on</i>-->
-          <input class="mdc-text-field__input" type="text" id="text-field-LEAVE-REASON-input" name="from">
-          <div class="mdc-notched-outline">
-            <div class="mdc-notched-outline__leading"></div>
-            <div class="mdc-notched-outline__notch">
-              <label for="text-field-hero-input" class="mdc-floating-label">Add reason</label>
-            </div>
-            <div class="mdc-notched-outline__trailing"></div>
+      <!--Add date to the leave-->
+      <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"
+        data-mdc-auto-init="MDCTextField">
+        <i class="material-icons mdc-text-field__icon">calendar_today</i>
+        <input class="mdc-text-field__input" type="date" id="text-field-LEAVE-DATE-Start-input" name="start">
+        <div class="mdc-notched-outline">
+          <div class="mdc-notched-outline__leading"></div>
+          <div class="mdc-notched-outline__notch">
+            <label for="text-field-hero-input" class="mdc-floating-label">Start Date</label>
           </div>
+          <div class="mdc-notched-outline__trailing"></div>
         </div>
+      </div>
 
-        <!--Add date to the leave-->
-        <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"
-          data-mdc-auto-init="MDCTextField">
-          <i class="material-icons mdc-text-field__icon">calendar_today</i>
-          <input class="mdc-text-field__input" id="text-field-LEAVE-DATE-input">
-          <div class="mdc-notched-outline">
-            <div class="mdc-notched-outline__leading"></div>
-            <div class="mdc-notched-outline__notch">
-              <label for="text-field-hero-input" class="mdc-floating-label">Date</label>
-            </div>
-            <div class="mdc-notched-outline__trailing"></div>
+      <!--arrow-->
+      <div class="search-form__icon">
+        <span class="material-icons">arrow_right_alt</span>
+      </div>
+
+      <!--Add date to the leave-->
+      <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"
+        data-mdc-auto-init="MDCTextField">
+        <i class="material-icons mdc-text-field__icon">calendar_today</i>
+        <input class="mdc-text-field__input" type="date" id="text-field-LEAVE-DATE-End-input" name="end">
+        <div class="mdc-notched-outline">
+          <div class="mdc-notched-outline__leading"></div>
+          <div class="mdc-notched-outline__notch">
+            <label for="text-field-hero-input" class="mdc-floating-label">End Date</label>
           </div>
+          <div class="mdc-notched-outline__trailing"></div>
         </div>
+      </div>
 
-        <!--add leave button-->
-        <div class="add-leave">
-
-          <button id="subbmit_button" class="mdc-button trip_form-button" data-mdc-auto-init="MDCRipple">
-            <div class="mdc-button__ripple"></div>
-            <span class="mdc-button__label">Add</span>
-          </button>
-
+      <!--add reason for leave box-->
+      <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"
+        data-mdc-auto-init="MDCTextField">
+        <i class="material-icons mdc-text-field__icon">short_text</i>
+        <input class="mdc-text-field__input" type="text" id="text-field-LEAVE-REASON-input" name="reason">
+        <div class="mdc-notched-outline">
+          <div class="mdc-notched-outline__leading"></div>
+          <div class="mdc-notched-outline__notch">
+            <label for="text-field-hero-input" class="mdc-floating-label">Add Reason</label>
+          </div>
+          <div class="mdc-notched-outline__trailing"></div>
         </div>
+      </div>
+
+      <!--add leave button-->
+      <div class="add-leave">
+
+        <button id="subbmit_button" class="mdc-button trip_form-button" data-mdc-auto-init="MDCRipple">
+          <div class="mdc-button__ripple"></div>
+          <span class="mdc-button__label">Add</span>
+        </button>
 
       </div>
 
-    </form>
-
-    <!--table-->
-    <div class="box my-box">
-      <div class="mdc-data-table">
-        <table class="mdc-data-table__table" aria-label="Dessert calories">
-          <thead id="leave-list--thead">
-            <tr class="mdc-data-table__header-row">
-              <th class="mdc-data-table__header-cell" role="columnheader" scope="col">At</th>
-              <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Reason</th>
-              <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Approved</th>
-            </tr>
-          </thead>
-          <tbody id="leave-list" class="mdc-data-table__content">
-
-          </tbody>
-        </table>
-      </div>
     </div>
 
+  </form>
+
+  <!--table-->
+  <div class="box my-box">
+    <div class="mdc-data-table">
+      <table class="mdc-data-table__table" aria-label="Dessert calories">
+        <thead id="leave-list--thead">
+          <tr class="mdc-data-table__header-row">
+            <th class="mdc-data-table__header-cell" role="columnheader" scope="col">From</th>
+            <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Until</th>
+            <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Reason</th>
+            <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Approved</th>
+          </tr>
+        </thead>
+        <tbody id="leave-list" class="mdc-data-table__content">
+
+        </tbody>
+      </table>
+    </div>
   </div>
 
-  <script>
-    function showMask() {
+</div>
+
+<script>
+  function showMask() {
     var node = document.getElementById('leave-list')
     var visibility = node.style.visibility;
     node.style.visibility = visibility == "visible" ? 'hidden' : "visible"
-}
-  </script>
+  }
+</script>
+
+<script src="js/leaves.js"></script>

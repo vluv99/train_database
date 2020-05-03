@@ -5,11 +5,11 @@ var DAO = require("../database/DAO.js");
 var dao = new DAO((err)=> {console.error(err)});
 
 module.exports = function (passport) {
-    passport.use(new LocalStrategy(
+    passport.use(new LocalStrategy( //login
         function (username, password, done) {
             dao.findUserByNicName(username, function (user, err) {
                 if (err) { return done(err); }
-                if (!user) {n
+                if (!user) {
                     return done(null, false, { message: 'Incorrect username.' });
                 }
                 if (!user.checkPassword(password)) {
@@ -20,7 +20,7 @@ module.exports = function (passport) {
         }
     ));
 
-    passport.serializeUser(function (user, done) {
+    passport.serializeUser(function (user, done) { //
         done(null, user.username);
     });
 

@@ -3,16 +3,18 @@ var router = express.Router();
 var {ensureAuthenticated} = require('../authenticate/auth.js') 
 //authenticate user 
 
-const Worker = require('../model/worker');
+var dateFormat = require('../util/dateConverter')[0];
+
+const WorkHours = require('../model/workHours');
 var DAO = require("../database/DAO.js");
 
 var dao = new DAO((err) => { console.error(err) });
 
 router.get('/all', ensureAuthenticated, function (req, res) {
-
-    dao.getAllWorkers((result, error) => {
+    console.log(req.query);
+    dao.listAllWorkedHoursByUser(req.query.id, (result, error) => {
         if (error) {
-            res.status(500).send("Database Error with workers all");
+            res.status(500).send("Database Error with salary listing");
             console.error(error);
         } else {
             res.send(JSON.stringify(result));
@@ -20,19 +22,18 @@ router.get('/all', ensureAuthenticated, function (req, res) {
     },
         (err) => {
             console.error(err);
-            res.status(500).send("Database Error with workers all");
+            res.status(500).send("Database Error with salary listing");
         })
 })
 
-//'/edit_wage?id=0&wage=10'
-router.post('/edit_wage', function (req, res) {
-    console.log(req.query);
-    dao.editWorkerWage(req.query.wage,req.query.id,(result, error) => {
+router.post('/add_hours', function (req, res) {
+    console.log(req.query);     //worker id? or username from url?
+    dao.addWorkedHoursToWorker(req.body.id, dateFormat(req.body.date), req.body.hours, (result, error) => {
         if (error) {
-            res.status(500).send("Database Error with workers wage edit");
+            res.status(500).send("Database Error with add hours");
             console.error(error);
         } else {
-            res.send(JSON.stringify(result));
+            res.redirect('/salary_management?id=' + req.body.id);
             console.log(req.body);
             console.log(req.query);
         }
@@ -40,11 +41,11 @@ router.post('/edit_wage', function (req, res) {
 
 })
 
-router.post('/add_worker', function (req, res) {
+router.delete('/delete_hours', function (req, res) {
     console.log(req.query);
-    dao.addWorker(req.body.user, req.body.tax, req.body.work, req.body.address, req.body.hourly,(result, error) => {
+    dao.deleteWorkersHours(req.query.id, (result, error) => {
         if (error) {
-            res.status(500).send("Database Error with add worker");
+            res.status(500).send("Database Error with delete hours");
             console.error(error);
         } else {
             res.redirect('/salary_management?username=' + req.body.user);
@@ -54,6 +55,5 @@ router.post('/add_worker', function (req, res) {
     });
 
 })
-
 
 module.exports = router;

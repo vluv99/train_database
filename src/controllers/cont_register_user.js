@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var {ensureAuthenticated} = require('../authenticate/auth.js') 
 
 var multer = require('multer');
 var upload = multer();
@@ -12,7 +13,6 @@ var dao = new DAO((err) => { console.error(err) });
 router.post('/', upload.none(), function (req, res) {
 
     dao.findUserByNicName(req.body.user, (found, err) => {
-        //console.log("Passwords are matching!");
         if (found == null) {
 
             let d = Date.parse(req.body.birth)
@@ -20,18 +20,14 @@ router.post('/', upload.none(), function (req, res) {
             date += "/" + new Intl.DateTimeFormat('en', { month: 'short' }).format(d)
             date += "/" + new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d)
 
-            //username, password, birthDate, mail, name, bankCardNumber
             dao.register(req.body.user, req.body.pass, date, req.body.mail, req.body.name, req.body.card, (result, error) => {
                 if (error) {
                     res.status(500).send("Database Error with register");
                     console.error(error);
                 } else {
-                    //res.send(JSON.stringify(result));
-                    //res.send('success');
+
 
                     res.redirect('/');
-                    console.log(req.body);
-                    console.log(req.query);
                 }
             });
         }
