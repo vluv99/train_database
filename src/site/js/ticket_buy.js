@@ -46,7 +46,13 @@ select.listen('MDCSelect:change', () => {
         template_10.style = ''
         template_1.style.display = 'none';
 
+        document.getElementById('finalPrice').style.display = '';
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const price = urlParams.get('price');
+
         final = 10 * price * 0.8;
+        
     }
 
     document.getElementById('finalPrice_field').value = final;

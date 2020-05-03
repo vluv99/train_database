@@ -31,7 +31,7 @@ class Ticket{
         ticket.to = data.HOVA;
         ticket.car = data.KOCSI;
         ticket.seat = data.SZEK;
-        //ticket.depart = data.from;
+        ticket.depart = data.INDULAS;
 
         return ticket;
     }

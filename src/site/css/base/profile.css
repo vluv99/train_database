@@ -45,6 +45,8 @@
     width: 193.45px;
     margin-right: 70px;
     text-align: left;
+    margin-top: 25px !important;
+    margin-bottom: 22px !important;
 }
 
 .profile-data, .profile-labes{
