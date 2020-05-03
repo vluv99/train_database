@@ -49,7 +49,12 @@ select.listen('MDCSelect:change', () => {
         final = 10 * price * 0.8;
     }
 
+    document.getElementById('finalPrice_field').value = final;
+    document.getElementById('category_field').value = select.selectedIndex;
+
     document.getElementById('finalPrice_number').textContent = final;
 
 
 });
+
+document.getElementById("buy_button").disabled = true; //disable button until checkbox

@@ -14,6 +14,7 @@ router.use('/api/workers/', require('../controllers/cont_worker_management'))
 router.use('/api/registration/', require('../controllers/cont_register_user'))
 router.use('/api/worker_salary/', require('../controllers/cont_salary_management'))
 router.use('/api/leaves/', require('../controllers/cont_leaves'))
+router.use('/api/tickets/', require('../controllers/cont_purchase'))
 
 router.use('/sign_up', require('../controllers/sign_up'))
 router.use('/sign_out', require('../controllers/sign_out'))
@@ -25,5 +26,6 @@ router.use('/stations', require('../controllers/stations'))
 router.use('/worker_data', require('../controllers/worker_data'))
 router.use('/leaves', require('../controllers/leaves'))
 router.use('/ticket_buy', require('../controllers/cont_ticket_buy'))
+router.use('/ticket', require('../controllers/ticket'))
 
 module.exports = router;

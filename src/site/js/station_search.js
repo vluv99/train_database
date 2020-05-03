@@ -82,9 +82,6 @@ document.getElementById("subbmit_button").onclick = () => {
     xhr.open("GET", "/api/stations?" + queryString);
     xhr.onload = function (event) {
 
-
-
-
         //alert("Success, server responded with: " + event.target.response); // raw response
         var data = JSON.parse(event.target.response);
 
@@ -129,11 +126,8 @@ document.getElementById("subbmit_button").onclick = () => {
                 td[2].textContent = "no";
             }
 
-
             tbody.appendChild(clone);
-
         }
-
     };
 
     // or onerror, onabort

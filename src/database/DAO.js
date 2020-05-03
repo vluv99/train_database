@@ -7,6 +7,7 @@ var Worker = require('../model/worker');
 var Trip = require('../model/trip');
 var WorkHours = require('../model/workHours');
 var Leaves = require('..//model/leaves');
+var Ticket = require('../model/ticket');
 
 class DAO {
 
@@ -54,6 +55,35 @@ class DAO {
             }
         )
     };
+
+    buyTicket(data,callback){
+
+        this.db.runQuerry(
+            `INSERT INTO JEGY(
+                FELHASZNALO, UT, SZEK, VETELI_DATUM, AR, KATEGORIA, UTAS_NEV, UTAS_MAIL, HONNAN, HOVA, INDULAS)
+                VALUES ('${data.username}',
+                        '${data.ut}',
+                         FIND_FREE_SEAT('${data.ut}'),
+                         CURRENT_DATE,
+                        '${data.price}',
+                        '${data.category}',
+                        '${data.passenger_name}',
+                        '${data.passenger_email}',
+                        '${data.from}',
+                        '${data.to}',
+                        '${data.depart}'
+                    )`,
+            {},
+            {
+                autoCommit: true
+            },
+            (res, err)=>{
+                if(err){
+                    console.log(err);
+                }
+                callback(res, err)
+            });
+    }
 
     getStationByName(name, callback) {
         this.db.runQuerry(
@@ -343,10 +373,10 @@ class DAO {
             });
     }
 
-    getTicketData(username){ //always sets the approval to false
+    getAllTicketData(username, callback){ //always sets the approval to false
         this.db.runQuerry(
             `SELECT * FROM JEGY
-            WHERE JEGY.FELHASZNALO = '${username}';`,
+            WHERE JEGY.FELHASZNALO = '${username}'`,
             {},
             {
                 outFormat: oracledb.OUT_FORMAT_OBJECT
@@ -362,6 +392,48 @@ class DAO {
                 callback(res, err)
             });
     }
+
+
+    getTicketData(username, passenger_name, callback){
+        this.db.runQuerry(
+            `SELECT * FROM JEGY
+            WHERE JEGY.FELHASZNALO = '${username}'
+            and jegy.utas_nev = '${passenger_name}'`,
+            {},
+            {
+                outFormat: oracledb.OUT_FORMAT_OBJECT
+            },
+            (res, err) => {
+                if (res != null && res.rows.length > 0) {
+                    console.log(res);
+                    var map = res.rows.map(function mappingFunction(value, index, array) {
+                        return Ticket.load(value);
+                    })
+                    res = map;
+                }
+                callback(res, err)
+            });
+    }
+
+    getTicketFromId(id, callback){
+        this.db.runQuerry(
+            `SELECT * FROM JEGY
+            WHERE JEGY.ID = '${id}'`,
+            {},
+            {
+                outFormat: oracledb.OUT_FORMAT_OBJECT
+            },
+            (res, err) => {
+                if (res != null && res.rows.length > 0) {
+                    let data = Ticket.load(res.rows[0]);
+                    res = data;
+                } else {
+                    res = null
+                }
+                callback(res, err)
+            });
+    }
+
 }
 
 module.exports = DAO;

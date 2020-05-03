@@ -98,7 +98,9 @@
       <input hidden value="<%- data.to %>" name="to">
       <input hidden value="<%- data.day %>" name="day">
       <input hidden value="<%- data.depart %>" name="depart">
-      <input hidden value="<%- data.depart %>" name="finalPrice">
+      <input hidden id="finalPrice_field" value="<%- data.price %>" name="finalPrice">
+
+      <input hidden id="category_field" value="" name="category">
 
       <h5 id="buyer__title" class="mdc-typography--headline5 mdc-theme--on-primary buyer__title-traveler_data">Passenger's data:</h5>
 
@@ -292,7 +294,7 @@
       <div id="traveller-data--end" class="traveller-data--end">
 
         <div class="mdc-checkbox checkbox" data-mdc-auto-init="MDCCheckbox">
-          <input type="checkbox" class="mdc-checkbox__native-control" id="checkbox-1" />
+          <input type="checkbox" class="mdc-checkbox__native-control" id="checkbox-1" onclick='onClickHandler()' />
           <div class="mdc-checkbox__background">
             <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
               <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59" />
@@ -303,7 +305,7 @@
         </div>
         <label class="checkbox-label" for="checkbox-1">Agree to Terms & Conditions</label>
 
-        <button class="mdc-button mdc-button--raised buy-button"> <span class="mdc-button__ripple"></span> Buy</button>
+        <button id="buy_button" class="mdc-button mdc-button--raised buy-button"> <span class="mdc-button__ripple"></span> Buy</button>
 
       </div>
 
@@ -311,5 +313,21 @@
     </form>
   </div>
 </div>
+
+<script>
+  function onClickHandler(){
+      var chk=document.getElementById("checkbox-1").value;
+
+      if (chk) {
+        document.getElementById("buy_button").disabled = false;
+      }
+      
+      if(!chk){
+        document.getElementById("buy_button").disabled = true;
+      }
+  
+  
+  }
+</script>
 
 <script src="js/ticket_buy.js"></script>

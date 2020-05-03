@@ -1,0 +1,59 @@
+<link rel="stylesheet" type="text/css" href="css/base/profile.css">
+
+<div class="mdc-top-app-bar--fixed-adjust content mdc-theme--surface">
+  <div class="profile-box">
+
+    <!--headline-->
+    <legend>
+      <h3 class="mdc-typography--headline3 mdc-theme--on-primary search-form__title">Worker Data</h3>
+    </legend>
+    <div class="row row--bordered">
+      <div class="column">
+
+        <div class="profile-labes">From: </div>
+
+        <div class="profile-labes">To: </div>
+
+        <div class="profile-labes">At: </div>
+
+        <div class="profile-labes">On: </div>
+
+        <div class="profile-labes">Car: </div>
+
+        <div class="profile-labes">Seat: </div>
+
+        <div class="profile-labes">Passenger's Name: </div>
+
+        <div class="profile-labes">Passenger's Email: </div>
+
+        <div class="profile-labes">Price: </div>
+
+      </div>
+      <div class="column">
+        <div class="profile-data"><%- data.from %></div>
+
+        <div class="profile-data"><%- data.to %></div>
+
+        <div class="profile-data"><%- data.depart %></div>
+
+        <div class="profile-data"><%- data.date %></div>
+
+        <div class="profile-data"><%- data.car %></div>
+
+        <div class="profile-data"><%- data.seat %></div>
+
+        <div class="profile-data"><%- data.passenger_name %></div>
+
+        <div class="profile-data"><%- data.passenger_mail %></div>
+
+        <div class="profile-data"><%- data.price %> <span> Ft</span></div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script src="js/ticket.js"></script>
